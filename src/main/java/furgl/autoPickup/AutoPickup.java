@@ -1,9 +1,14 @@
 package furgl.autoPickup;
 
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import furgl.autoPickup.event.AttackEntityEvents;
 import furgl.autoPickup.event.BlockEvents;
 import furgl.autoPickup.event.EntityInteractEvents;
 import furgl.autoPickup.event.EntityItemPickupEvents;
+import furgl.autoPickup.event.EntityJoinWorldEvents;
 import furgl.autoPickup.event.ItemTossEvents;
 import furgl.autoPickup.event.LivingEvents;
 import furgl.autoPickup.event.PlaySoundAtEntityEvents;
@@ -11,14 +16,8 @@ import furgl.autoPickup.event.PlayerInteractEvents;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 @Mod(modid = AutoPickup.MODID, name = AutoPickup.MODNAME, version = AutoPickup.VERSION)
 public class AutoPickup
@@ -30,14 +29,8 @@ public class AutoPickup
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		System.out.println(event.getSuggestedConfigurationFile());
-		Config.init(event.getSuggestedConfigurationFile());
-	}
-
-	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
 		registerEventListeners();
+		Config.init(event.getSuggestedConfigurationFile());
 	}
 
 	@EventHandler
@@ -50,6 +43,7 @@ public class AutoPickup
 	{
 		MinecraftForge.EVENT_BUS.register(new BlockEvents()); 
 		MinecraftForge.EVENT_BUS.register(new LivingEvents()); 
+		MinecraftForge.EVENT_BUS.register(new EntityJoinWorldEvents()); 
 		MinecraftForge.EVENT_BUS.register(new PlaySoundAtEntityEvents());
 		MinecraftForge.EVENT_BUS.register(new EntityInteractEvents());
 		MinecraftForge.EVENT_BUS.register(new AttackEntityEvents());
@@ -62,7 +56,7 @@ public class AutoPickup
 	{
 		if (!giveIfCreative && player.capabilities.isCreativeMode)
 			return true;
-		Config.syncFromConfig(player.getName());
+		Config.syncFromConfig(player.getDisplayName());
 		if (itemStack != null && !Config.blacklistNames.contains(itemStack.getItem().getItemStackDisplayName(itemStack).replace(" ", "_")))
 		{
 			boolean value = player.inventory.addItemStackToInventory(itemStack);
@@ -74,7 +68,7 @@ public class AutoPickup
 			return false;
 	}
 
-	public static void spawnEntityItem(World world, BlockPos pos, ItemStack itemStack)
+	public static void spawnEntityItem(World world, double x, double y, double z, ItemStack itemStack)
 	{
 		if (itemStack != null)
 		{
@@ -82,8 +76,8 @@ public class AutoPickup
 			double d0 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
 			double d1 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
 			double d2 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-			EntityItem entityitem = new EntityItem(world, (double)pos.getX() + d0, (double)pos.getY() + d1, (double)pos.getZ() + d2, itemStack);
-			entityitem.setDefaultPickupDelay();
+			EntityItem entityitem = new EntityItem(world, x + d0, y + d1, z + d2, itemStack);
+			entityitem.delayBeforeCanPickup = 10;
 			world.spawnEntityInWorld(entityitem);	
 		}
 	}

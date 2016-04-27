@@ -2,6 +2,8 @@ package furgl.autoPickup.event;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.eventhandler.EventPriority;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import furgl.autoPickup.AutoPickup;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityMooshroom;
@@ -11,8 +13,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EntityInteractEvents 
 {
@@ -33,8 +33,8 @@ public class EntityInteractEvents
 				int i = 1 + rand.nextInt(3);
 				for (int j = 0; j < i; ++j)
 				{
-					if (!AutoPickup.addItem(event.entityPlayer, new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, ((EntitySheep) event.target).getFleeceColor().getMetadata()), true))
-						event.target.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, ((EntitySheep) event.target).getFleeceColor().getMetadata()), 0);
+					if (!AutoPickup.addItem(event.entityPlayer, new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, ((EntitySheep) event.target).getFleeceColor()), true))
+						event.target.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.wool), 1, ((EntitySheep) event.target).getFleeceColor()), 0);
 				}
 				itemstack.damageItem(1, event.entityPlayer);
 				((EntitySheep) event.target).playSound("mob.sheep.shear", 1.0F, 1.0F);
@@ -52,8 +52,6 @@ public class EntityInteractEvents
 				entitycow.setLocationAndAngles(event.target.posX, event.target.posY, event.target.posZ, event.target.rotationYaw, event.target.rotationPitch);
 				entitycow.setHealth(((EntityMooshroom) event.target).getHealth());
 				entitycow.renderYawOffset = ((EntityMooshroom) event.target).renderYawOffset;
-				if (event.target.hasCustomName())
-					entitycow.setCustomNameTag(event.target.getCustomNameTag());
 				event.target.worldObj.spawnEntityInWorld(entitycow);
 				event.target.setDead();
 				event.setCanceled(true);

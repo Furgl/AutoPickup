@@ -11,20 +11,18 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.ResourceLocation;
 
 public class CommandBlacklist extends CommandBase
 {
 	private static List aliases;
 	private static ArrayList<String> actions;
 	/**SHOULD NOT BE ACCESSED DIRECTLY - USE GETTER*/
-	static Collection displayNames;
+	private static Collection displayNames;
 
-	static
+	public CommandBlacklist()
 	{
 		actions = new ArrayList<String>();
 		actions.add("add");
@@ -53,11 +51,11 @@ public class CommandBlacklist extends CommandBase
 		{
 			try 
 			{
-				Item item = getItemByText(null, ((ResourceLocation) iterator.next()).toString());
-				/*ArrayList<ItemStack> subItems = new ArrayList<ItemStack>();
+				Item item = getItemByText(null, (String) iterator.next());
+				ArrayList<ItemStack> subItems = new ArrayList<ItemStack>();
 				item.getSubItems(item, item.getCreativeTab(), subItems);
-				for (ItemStack stack : subItems)*/
-					displayNames.add((String) item.getItemStackDisplayName(new ItemStack(item)).replace(" ", "_"));
+				for (ItemStack stack : subItems)
+					displayNames.add((String) item.getItemStackDisplayName(stack).replace(" ", "_"));
 			} 
 			catch (Exception e) 
 			{
@@ -67,19 +65,19 @@ public class CommandBlacklist extends CommandBase
 		return (Collection) displayNames;
 	}
 
-	public List addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos) 
+	public List addTabCompletionOptions(ICommandSender sender, String[] args) 
 	{
-		Config.syncFromConfig(sender.getName());
+		Config.syncFromConfig(sender.getCommandSenderName());
 		if (args.length == 1)
 		{
-			return func_175762_a(args, CommandBlacklist.actions);
+			return getListOfStringsFromIterableMatchingLastWord(args, CommandBlacklist.actions);
 		}
 		else if (args.length == 2)
 		{
 			if (args[0].equalsIgnoreCase("add"))
-				return func_175762_a(args, getDisplayNames());
+				return getListOfStringsFromIterableMatchingLastWord(args, getDisplayNames());
 			else if (args[0].equalsIgnoreCase("remove"))
-				return func_175762_a(args, Config.blacklistNames);
+				return getListOfStringsFromIterableMatchingLastWord(args, Config.blacklistNames);
 			else
 				return null;
 		}
@@ -87,16 +85,16 @@ public class CommandBlacklist extends CommandBase
 			return null;
 	}
 
-	public boolean canCommandSenderUse(ICommandSender sender) 
+	public boolean canCommandSenderUseCommand(ICommandSender sender) 
 	{
 		return true;
 	}
 
-	public void execute(ICommandSender sender, String[] args) throws CommandException 
+	public void processCommand(ICommandSender sender, String[] args) throws CommandException 
 	{
 		if (args.length == 2)
 			args[1] = this.addCaps(args[1]);
-		Config.syncFromConfig(sender.getName());
+		Config.syncFromConfig(sender.getCommandSenderName());
 		if (args.length == 0)
 		{
 			sender.addChatMessage(new ChatComponentTranslation("[AutoPickup] Blacklist Contains:").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.DARK_AQUA)/*.setBold(true)*/));
@@ -107,7 +105,7 @@ public class CommandBlacklist extends CommandBase
 		else if (args.length == 1 && args[0].equalsIgnoreCase("clear"))
 		{
 			Config.blacklistNames.clear();
-			Config.syncToConfig(sender.getName());
+			Config.syncToConfig(sender.getCommandSenderName());
 			sender.addChatMessage(new ChatComponentTranslation("[AutoPickup] Blacklist cleared.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 			return;
 		}
@@ -121,14 +119,14 @@ public class CommandBlacklist extends CommandBase
 			if (args[1].equalsIgnoreCase("true"))
 			{
 				Config.autoAdd = true;
-				Config.syncToConfig(sender.getName());
+				Config.syncToConfig(sender.getCommandSenderName());
 				sender.addChatMessage(new ChatComponentTranslation("[AutoPickup] AutoAdd enabled.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 				return;
 			}
 			else if (args[1].equalsIgnoreCase("false"))
 			{
 				Config.autoAdd = false;
-				Config.syncToConfig(sender.getName());
+				Config.syncToConfig(sender.getCommandSenderName());
 				sender.addChatMessage(new ChatComponentTranslation("[AutoPickup] AutoAdd disabled.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 				return;
 			}
@@ -138,19 +136,19 @@ public class CommandBlacklist extends CommandBase
 				return;
 			}
 		}
-		else if (args.length == 2/* && getDisplayNames().contains(args[1])*/)
+		else if (args.length == 2 && getDisplayNames().contains(args[1]))
 		{
 			if (args[0].equalsIgnoreCase("add")) 
-			{													
+			{
 				if (Config.blacklistNames.contains(args[1]))
 				{
 					sender.addChatMessage(new ChatComponentTranslation("[AutoPickup] Blacklist already contains "+args[1]+".").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
-					return;	
-				}					//added
-				else if (getDisplayNames().contains(args[1]))
+					return;
+				}
+				else
 				{
 					Config.blacklistNames.add(args[1]);
-					Config.syncToConfig(sender.getName());
+					Config.syncToConfig(sender.getCommandSenderName());
 					sender.addChatMessage(new ChatComponentTranslation("[AutoPickup] Added "+args[1]+" to blacklist.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.DARK_GREEN)));
 					return;
 				}
@@ -160,7 +158,7 @@ public class CommandBlacklist extends CommandBase
 				if (Config.blacklistNames.contains(args[1]))
 				{
 					Config.blacklistNames.remove(args[1]);
-					Config.syncToConfig(sender.getName());
+					Config.syncToConfig(sender.getCommandSenderName());
 					sender.addChatMessage(new ChatComponentTranslation("[AutoPickup] Removed "+args[1]+" from blacklist.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GOLD)));
 					return;
 				}
@@ -178,7 +176,7 @@ public class CommandBlacklist extends CommandBase
 		}
 		sender.addChatMessage(new ChatComponentTranslation("Usage: /b <action> [<item/true/false>]").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.RED)));
 	}
-
+	
 	private String addCaps(String string) 
 	{
 		string = string.substring(0, 1).toUpperCase()+string.substring(1);
@@ -189,7 +187,7 @@ public class CommandBlacklist extends CommandBase
 		return string;
 	}
 
-	public List getAliases() 
+	public List getCommandAliases() 
 	{
 		aliases = new ArrayList();
 		aliases.add("blacklist");
@@ -202,8 +200,9 @@ public class CommandBlacklist extends CommandBase
 		return "/b <action> [<item>]";
 	}
 
-	public String getName() 
+	public String getCommandName() 
 	{
 		return "blacklist";
 	}
+
 }

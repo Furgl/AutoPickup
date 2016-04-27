@@ -2,6 +2,8 @@ package furgl.autoPickup.event;
 
 import java.lang.reflect.Field;
 
+import cpw.mods.fml.common.eventhandler.EventPriority;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import furgl.autoPickup.AutoPickup;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,8 +12,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.PlaySoundAtEntityEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class PlaySoundAtEntityEvents 
 {
@@ -25,7 +25,7 @@ public class PlaySoundAtEntityEvents
 			{
 				try
 				{
-					Field field = arrow.getClass().getDeclaredField("inTile");
+					Field field = arrow.getClass().getDeclaredField("field_145790_g");
 					field.setAccessible(true);
 					if (event.name.equals("random.bowhit") && field.get(arrow) instanceof Block && arrow.canBePickedUp == 1)
 					{
