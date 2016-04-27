@@ -1,0 +1,17 @@
+[
+{
+  "modid": "autopickup",
+  "name": "AutoPickup",
+  "description": "Allows items to be picked up automatically or blacklisted and never picked up.",
+  "version": "1.1",
+  "mcversion": "1.8",
+  "url": "http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2566182-1-8-furgls-mods-auto-pickup-baby-mobs",
+  "updateUrl": "",
+  "authorList": ["Furgl"],
+  "credits": "2piradians - Testing",
+  "logoFile": "/AutoPickup.png",
+  "screenshots": [],
+  "requiredMods": ["Forge"],
+  "dependencies": []
+}
+]
