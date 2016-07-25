@@ -26,9 +26,9 @@ public class Config
 	{
 		Property autoAddProp = Config.config.get(playerName, "AutoAdd", true);
 		autoAdd = autoAddProp.getBoolean();
-		Property itemProp = Config.config.get(playerName, "Blacklisted Items", new String[0]);
+		Property itemsProp = Config.config.get(playerName, "Blacklisted Items", new String[0]);
 		blacklistNames = new ArrayList<String>();
-		String[] names = itemProp.getStringList();
+		String[] names = itemsProp.getStringList();
 		for (int i=0; i<names.length; i++)
 		{
 			blacklistNames.add(names[i]);
@@ -41,11 +41,11 @@ public class Config
 	{
 		Property autoAddProp = Config.config.get(playerName, "AutoAdd", true);
 		autoAddProp.set(autoAdd);
-		Property itemProp = Config.config.get(playerName, "Blacklisted Items", new String[0]);
+		Property itemsProp = Config.config.get(playerName, "Blacklisted Items", new String[0]);
 		String[] names = new String[blacklistNames.size()];
 		for (int i=0; i<blacklistNames.size(); i++)
 			names[i] = blacklistNames.get(i);
-		itemProp.set(names);
+		itemsProp.set(names);
 		Config.config.save();
 	}
 }

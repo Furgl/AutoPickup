@@ -3,6 +3,7 @@ package furgl.autoPickup.event;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import furgl.autoPickup.Config;
+import furgl.autoPickup.IgnoreKey;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 
 public class EntityItemPickupEvents 
@@ -11,7 +12,7 @@ public class EntityItemPickupEvents
 	public void onEvent(EntityItemPickupEvent event)
 	{
 		Config.syncFromConfig(event.entityPlayer.getDisplayName());
-		if (Config.blacklistNames.contains(event.item.getEntityItem().getItem().getItemStackDisplayName(event.item.getEntityItem()).replace(" ", "_")))
+		if (!IgnoreKey.isPressed && Config.blacklistNames.contains(event.item.getEntityItem().getItem().getItemStackDisplayName(event.item.getEntityItem()).replace(" ", "_")))
 		{
 			event.item.delayBeforeCanPickup = 10;
 			event.setCanceled(true);		

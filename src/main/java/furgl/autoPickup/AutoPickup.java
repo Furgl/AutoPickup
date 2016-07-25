@@ -1,22 +1,25 @@
 package furgl.autoPickup;
 
+import org.lwjgl.input.Keyboard;
+
+import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import furgl.autoPickup.event.AttackEntityEvents;
-import furgl.autoPickup.event.BlockEvents;
-import furgl.autoPickup.event.EntityInteractEvents;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.relauncher.Side;
+import furgl.autoPickup.event.DelayedPickupEvent;
 import furgl.autoPickup.event.EntityItemPickupEvents;
 import furgl.autoPickup.event.EntityJoinWorldEvents;
 import furgl.autoPickup.event.ItemTossEvents;
-import furgl.autoPickup.event.LivingEvents;
 import furgl.autoPickup.event.PlaySoundAtEntityEvents;
-import furgl.autoPickup.event.PlayerInteractEvents;
-import net.minecraft.entity.item.EntityItem;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = AutoPickup.MODID, name = AutoPickup.MODNAME, version = AutoPickup.VERSION)
@@ -24,14 +27,26 @@ public class AutoPickup
 {
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "1.1";
+	public static final String VERSION = "2.0";
 
+	public static SimpleNetworkWrapper network;
+	public static KeyBinding ignoreBlacklist = new KeyBinding("Ignore Blacklist", Keyboard.KEY_LMENU, "Auto Pickup");
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		network = NetworkRegistry.INSTANCE.newSimpleChannel("autoPickupChannel");
+		network.registerMessage(PacketIgnoreKey.Handler.class, PacketIgnoreKey.class, 1, Side.SERVER);
 		registerEventListeners();
 		Config.init(event.getSuggestedConfigurationFile());
 	}
+	
+	@EventHandler
+	public void init(FMLInitializationEvent event)
+	{
+		ClientRegistry.registerKeyBinding(ignoreBlacklist);
+	}
+
 
 	@EventHandler
 	public void serverLoad(FMLServerStartingEvent event)
@@ -41,15 +56,13 @@ public class AutoPickup
 
 	public void registerEventListeners() 
 	{
-		MinecraftForge.EVENT_BUS.register(new BlockEvents()); 
-		MinecraftForge.EVENT_BUS.register(new LivingEvents()); 
+		MinecraftForge.EVENT_BUS.register(new DelayedPickupEvent());
 		MinecraftForge.EVENT_BUS.register(new EntityJoinWorldEvents()); 
 		MinecraftForge.EVENT_BUS.register(new PlaySoundAtEntityEvents());
-		MinecraftForge.EVENT_BUS.register(new EntityInteractEvents());
-		MinecraftForge.EVENT_BUS.register(new AttackEntityEvents());
-		MinecraftForge.EVENT_BUS.register(new PlayerInteractEvents());
 		MinecraftForge.EVENT_BUS.register(new EntityItemPickupEvents());
 		MinecraftForge.EVENT_BUS.register(new ItemTossEvents());
+		FMLCommonHandler.instance().bus().register(new IgnoreKey());
+		FMLCommonHandler.instance().bus().register(new DelayedPickupEvent());
 	}
 
 	public static boolean addItem(EntityPlayer player, ItemStack itemStack, boolean giveIfCreative)
@@ -57,7 +70,7 @@ public class AutoPickup
 		if (!giveIfCreative && player.capabilities.isCreativeMode)
 			return true;
 		Config.syncFromConfig(player.getDisplayName());
-		if (itemStack != null && !Config.blacklistNames.contains(itemStack.getItem().getItemStackDisplayName(itemStack).replace(" ", "_")))
+		if (itemStack != null && (!Config.blacklistNames.contains(itemStack.getItem().getItemStackDisplayName(itemStack).replace(" ", "_")) || IgnoreKey.isPressed))
 		{
 			boolean value = player.inventory.addItemStackToInventory(itemStack);
 			if (value)
@@ -66,20 +79,6 @@ public class AutoPickup
 		}
 		else
 			return false;
-	}
-
-	public static void spawnEntityItem(World world, double x, double y, double z, ItemStack itemStack)
-	{
-		if (itemStack != null)
-		{
-			float f = 0.5F;
-			double d0 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-			double d1 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-			double d2 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-			EntityItem entityitem = new EntityItem(world, x + d0, y + d1, z + d2, itemStack);
-			entityitem.delayBeforeCanPickup = 10;
-			world.spawnEntityInWorld(entityitem);	
-		}
 	}
 }
 
