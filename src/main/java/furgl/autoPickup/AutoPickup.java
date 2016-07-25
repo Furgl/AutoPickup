@@ -2,20 +2,13 @@ package furgl.autoPickup;
 
 import org.lwjgl.input.Keyboard;
 
-import furgl.autoPickup.event.AttackEntityEvents;
-import furgl.autoPickup.event.BlockEvents;
-import furgl.autoPickup.event.EntityInteractEvents;
+import furgl.autoPickup.event.DelayedPickupEvent;
 import furgl.autoPickup.event.EntityItemPickupEvents;
 import furgl.autoPickup.event.ItemTossEvents;
-import furgl.autoPickup.event.LivingEvents;
 import furgl.autoPickup.event.PlaySoundAtEntityEvents;
-import furgl.autoPickup.event.PlayerInteractEvents;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -33,7 +26,7 @@ public class AutoPickup
 {
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "1.1";
+	public static final String VERSION = "2.0";
 	
 	public static SimpleNetworkWrapper network;
 	public static KeyBinding ignoreBlacklist = new KeyBinding("Ignore Blacklist", Keyboard.KEY_LMENU, "Auto Pickup");
@@ -61,15 +54,12 @@ public class AutoPickup
 
 	public void registerEventListeners() 
 	{
-		MinecraftForge.EVENT_BUS.register(new BlockEvents()); 
-		MinecraftForge.EVENT_BUS.register(new LivingEvents()); 
+		MinecraftForge.EVENT_BUS.register(new DelayedPickupEvent());
 		MinecraftForge.EVENT_BUS.register(new PlaySoundAtEntityEvents());
-		MinecraftForge.EVENT_BUS.register(new EntityInteractEvents());
-		MinecraftForge.EVENT_BUS.register(new AttackEntityEvents());
-		MinecraftForge.EVENT_BUS.register(new PlayerInteractEvents());
 		MinecraftForge.EVENT_BUS.register(new EntityItemPickupEvents());
 		MinecraftForge.EVENT_BUS.register(new ItemTossEvents());
 		FMLCommonHandler.instance().bus().register(new IgnoreKey());
+		FMLCommonHandler.instance().bus().register(new DelayedPickupEvent());
 	}
 
 	public static boolean addItem(EntityPlayer player, ItemStack itemStack, boolean giveIfCreative)
@@ -77,7 +67,7 @@ public class AutoPickup
 		if (!giveIfCreative && player.capabilities.isCreativeMode)
 			return true;
 		Config.syncFromConfig(player.getName());
-		if (itemStack != null && !Config.blacklistNames.contains(itemStack.getItem().getItemStackDisplayName(itemStack).replace(" ", "_")))
+		if (itemStack != null && (!Config.blacklistNames.contains(itemStack.getItem().getItemStackDisplayName(itemStack).replace(" ", "_")) || IgnoreKey.isPressed))
 		{
 			boolean value = player.inventory.addItemStackToInventory(itemStack);
 			if (value)
@@ -86,20 +76,6 @@ public class AutoPickup
 		}
 		else
 			return false;
-	}
-
-	public static void spawnEntityItem(World world, BlockPos pos, ItemStack itemStack)
-	{
-		if (itemStack != null)
-		{
-			float f = 0.5F;
-			double d0 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-			double d1 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-			double d2 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-			EntityItem entityitem = new EntityItem(world, (double)pos.getX() + d0, (double)pos.getY() + d1, (double)pos.getZ() + d2, itemStack);
-			entityitem.setDefaultPickupDelay();
-			world.spawnEntityInWorld(entityitem);	
-		}
 	}
 }
 
