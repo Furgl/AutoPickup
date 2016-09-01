@@ -11,7 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -58,8 +57,8 @@ public class AutoPickup
 		MinecraftForge.EVENT_BUS.register(new PlaySoundAtEntityEvents());
 		MinecraftForge.EVENT_BUS.register(new EntityItemPickupEvents());
 		MinecraftForge.EVENT_BUS.register(new ItemTossEvents());
-		FMLCommonHandler.instance().bus().register(new IgnoreKey());
-		FMLCommonHandler.instance().bus().register(new DelayedPickupEvent());
+		MinecraftForge.EVENT_BUS.register(new IgnoreKey());
+		MinecraftForge.EVENT_BUS.register(new DelayedPickupEvent());
 	}
 
 	public static boolean addItem(EntityPlayer player, ItemStack itemStack, boolean giveIfCreative)

@@ -1,14 +1,5 @@
 package furgl.autoPickup.event;
 
-import java.lang.reflect.Field;
-
-import furgl.autoPickup.AutoPickup;
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.PlaySoundAtEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -17,17 +8,17 @@ public class PlaySoundAtEntityEvents
 {
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(PlaySoundAtEntityEvent event)
-	{
-		if (event.entity instanceof EntityArrow && !event.entity.worldObj.isRemote && !event.entity.isDead)
+	{//NO LONGER WORKS AS OF 1.9 - EVENT.GETENTITY() == NULL
+		/*if (event.getEntity() instanceof EntityArrow && !event.getEntity().worldObj.isRemote && !event.getEntity().isDead)
 		{
-			EntityArrow arrow = (EntityArrow) event.entity;
+			EntityArrow arrow = (EntityArrow) event.getEntity();
 			if (arrow.shootingEntity instanceof EntityPlayer && !(arrow.shootingEntity instanceof FakePlayer))
 			{
 				try
 				{
 					Field field = arrow.getClass().getDeclaredField("inTile");
 					field.setAccessible(true);
-					if (event.name.equals("random.bowhit") && field.get(arrow) instanceof Block && arrow.canBePickedUp == 1)
+					if (event.getSound() == SoundEvents.entity_arrow_hit && field.get(arrow) instanceof Block && arrow.canBePickedUp == EntityArrow.PickupStatus.ALLOWED)
 					{
 						if (AutoPickup.addItem((EntityPlayer) arrow.shootingEntity, new ItemStack(Items.arrow), false))
 							arrow.setDead();
@@ -38,6 +29,6 @@ public class PlaySoundAtEntityEvents
 					e.printStackTrace();
 				}
 			}
-		}
+		}*/
 	}
 }

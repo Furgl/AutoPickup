@@ -1,0 +1,11 @@
+Symbol range map extraction starting
+Processing 9 files
+processing furgl\autoPickup\AutoPickup.java
+processing furgl\autoPickup\CommandBlacklist.java
+processing furgl\autoPickup\Config.java
+processing furgl\autoPickup\IgnoreKey.java
+processing furgl\autoPickup\PacketIgnoreKey.java
+processing furgl\autoPickup\event\DelayedPickupEvent.java
+processing furgl\autoPickup\event\EntityItemPickupEvents.java
+processing furgl\autoPickup\event\ItemTossEvents.java
+processing furgl\autoPickup\event\PlaySoundAtEntityEvents.java

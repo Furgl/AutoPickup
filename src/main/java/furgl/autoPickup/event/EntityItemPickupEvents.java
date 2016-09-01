@@ -11,10 +11,10 @@ public class EntityItemPickupEvents
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(EntityItemPickupEvent event)
 	{
-		Config.syncFromConfig(event.entityPlayer.getName());
-		if (!IgnoreKey.isPressed && Config.blacklistNames.contains(event.item.getEntityItem().getItem().getItemStackDisplayName(event.item.getEntityItem()).replace(" ", "_")))
+		Config.syncFromConfig(event.getEntityPlayer().getName());
+		if (!IgnoreKey.isPressed && Config.blacklistNames.contains(event.getItem().getEntityItem().getItem().getItemStackDisplayName(event.getItem().getEntityItem()).replace(" ", "_")))
 		{
-			event.item.setDefaultPickupDelay();
+			event.getItem().setDefaultPickupDelay();
 			event.setCanceled(true);		
 		}
 	}
