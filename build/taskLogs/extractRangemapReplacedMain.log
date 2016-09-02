@@ -1,6 +1,6 @@
 Symbol range map extraction starting
 Processing 11 files
-startProcessing "furgl\autoPickup\AutoPickup.java" md5: 9828c32489e5dab1200a5f2c25cbe17c
+startProcessing "furgl\autoPickup\AutoPickup.java" md5: f5da1737dcab356cc3ce252022088d85
 endProcessing "furgl\autoPickup\AutoPickup.java"
 
 startProcessing "furgl\autoPickup\ClientProxy.java" md5: 86e3678b48b020af9033f20af627cccf

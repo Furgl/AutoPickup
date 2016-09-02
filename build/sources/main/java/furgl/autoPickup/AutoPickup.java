@@ -26,8 +26,8 @@ public class AutoPickup
 	
 	public static SimpleNetworkWrapper network;
 	@SidedProxy(clientSide = "furgl.autoPickup.ClientProxy", serverSide = "furgl.autoPickup.CommonProxy")
-	public static CommonProxy proxy;
-
+	public static CommonProxy proxy;	
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{

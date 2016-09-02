@@ -1,6 +1,6 @@
 Symbol range map extraction starting
 Processing 11 files
-startProcessing "furgl\autoPickup\AutoPickup.java" md5: 9828c32489e5dab1200a5f2c25cbe17c
+startProcessing "furgl\autoPickup\AutoPickup.java" md5: f5da1737dcab356cc3ce252022088d85
 @|furgl\autoPickup\AutoPickup.java|8|24|furgl.autoPickup|package|furgl.autoPickup|(file)
 Class Start: furgl.autoPickup.AutoPickup
    @|furgl\autoPickup\AutoPickup.java|906|909|Mod|class|net.minecraftforge.fml.common.Mod
@@ -33,104 +33,104 @@ Class Start: furgl.autoPickup.AutoPickup
    @|furgl\autoPickup\AutoPickup.java|1331|1342|CommonProxy|class|furgl.autoPickup.CommonProxy
    @|furgl\autoPickup\AutoPickup.java|1343|1348|proxy|field|furgl.autoPickup.AutoPickup|proxy|
    Method Start: preInit(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
-      @|furgl\autoPickup\AutoPickup.java|1413|1418|event|param|furgl.autoPickup.AutoPickup|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
-      @|furgl\autoPickup\AutoPickup.java|1353|1365|EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler
-      @|furgl\autoPickup\AutoPickup.java|1379|1386|preInit|method|furgl.autoPickup.AutoPickup|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
-      @|furgl\autoPickup\AutoPickup.java|1387|1412|FMLPreInitializationEvent|class|net.minecraftforge.fml.common.event.FMLPreInitializationEvent
-      @|furgl\autoPickup\AutoPickup.java|1425|1432|network|field|furgl.autoPickup.AutoPickup|network
-      @|furgl\autoPickup\AutoPickup.java|1435|1450|NetworkRegistry|class|net.minecraftforge.fml.common.network.NetworkRegistry
-      @|furgl\autoPickup\AutoPickup.java|1451|1459|INSTANCE|field|net.minecraftforge.fml.common.network.NetworkRegistry|INSTANCE
-      @|furgl\autoPickup\AutoPickup.java|1460|1476|newSimpleChannel|method|net.minecraftforge.fml.common.network.NetworkRegistry|newSimpleChannel|(Ljava/lang/String;)Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
-      @|furgl\autoPickup\AutoPickup.java|1501|1508|network|field|furgl.autoPickup.AutoPickup|network
-      @|furgl\autoPickup\AutoPickup.java|1509|1524|registerMessage|method|net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper|registerMessage|(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
-      @|furgl\autoPickup\AutoPickup.java|1525|1548|PacketIgnoreKey.Handler|class|furgl.autoPickup.PacketIgnoreKey.Handler
-      @|furgl\autoPickup\AutoPickup.java|1556|1571|PacketIgnoreKey|class|furgl.autoPickup.PacketIgnoreKey
-      @|furgl\autoPickup\AutoPickup.java|1582|1586|Side|class|net.minecraftforge.fml.relauncher.Side
-      @|furgl\autoPickup\AutoPickup.java|1587|1593|SERVER|field|net.minecraftforge.fml.relauncher.Side|SERVER
-      @|furgl\autoPickup\AutoPickup.java|1598|1604|Config|class|furgl.autoPickup.Config
-      @|furgl\autoPickup\AutoPickup.java|1605|1609|init|method|furgl.autoPickup.Config|init|(Ljava/io/File;)V
-      @|furgl\autoPickup\AutoPickup.java|1610|1615|event|param|furgl.autoPickup.AutoPickup|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
-      @|furgl\autoPickup\AutoPickup.java|1616|1645|getSuggestedConfigurationFile|method|net.minecraftforge.fml.common.event.FMLPreInitializationEvent|getSuggestedConfigurationFile|()Ljava/io/File;
+      @|furgl\autoPickup\AutoPickup.java|1415|1420|event|param|furgl.autoPickup.AutoPickup|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
+      @|furgl\autoPickup\AutoPickup.java|1355|1367|EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler
+      @|furgl\autoPickup\AutoPickup.java|1381|1388|preInit|method|furgl.autoPickup.AutoPickup|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
+      @|furgl\autoPickup\AutoPickup.java|1389|1414|FMLPreInitializationEvent|class|net.minecraftforge.fml.common.event.FMLPreInitializationEvent
+      @|furgl\autoPickup\AutoPickup.java|1427|1434|network|field|furgl.autoPickup.AutoPickup|network
+      @|furgl\autoPickup\AutoPickup.java|1437|1452|NetworkRegistry|class|net.minecraftforge.fml.common.network.NetworkRegistry
+      @|furgl\autoPickup\AutoPickup.java|1453|1461|INSTANCE|field|net.minecraftforge.fml.common.network.NetworkRegistry|INSTANCE
+      @|furgl\autoPickup\AutoPickup.java|1462|1478|newSimpleChannel|method|net.minecraftforge.fml.common.network.NetworkRegistry|newSimpleChannel|(Ljava/lang/String;)Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+      @|furgl\autoPickup\AutoPickup.java|1503|1510|network|field|furgl.autoPickup.AutoPickup|network
+      @|furgl\autoPickup\AutoPickup.java|1511|1526|registerMessage|method|net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper|registerMessage|(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
+      @|furgl\autoPickup\AutoPickup.java|1527|1550|PacketIgnoreKey.Handler|class|furgl.autoPickup.PacketIgnoreKey.Handler
+      @|furgl\autoPickup\AutoPickup.java|1558|1573|PacketIgnoreKey|class|furgl.autoPickup.PacketIgnoreKey
+      @|furgl\autoPickup\AutoPickup.java|1584|1588|Side|class|net.minecraftforge.fml.relauncher.Side
+      @|furgl\autoPickup\AutoPickup.java|1589|1595|SERVER|field|net.minecraftforge.fml.relauncher.Side|SERVER
+      @|furgl\autoPickup\AutoPickup.java|1600|1606|Config|class|furgl.autoPickup.Config
+      @|furgl\autoPickup\AutoPickup.java|1607|1611|init|method|furgl.autoPickup.Config|init|(Ljava/io/File;)V
+      @|furgl\autoPickup\AutoPickup.java|1612|1617|event|param|furgl.autoPickup.AutoPickup|preInit|(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V|event|0
+      @|furgl\autoPickup\AutoPickup.java|1618|1647|getSuggestedConfigurationFile|method|net.minecraftforge.fml.common.event.FMLPreInitializationEvent|getSuggestedConfigurationFile|()Ljava/io/File;
    Method End: preInit(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V
    Method Start: init(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
-      @|furgl\autoPickup\AutoPickup.java|1710|1715|event|param|furgl.autoPickup.AutoPickup|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
-      @|furgl\autoPickup\AutoPickup.java|1656|1668|EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler
-      @|furgl\autoPickup\AutoPickup.java|1682|1686|init|method|furgl.autoPickup.AutoPickup|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
-      @|furgl\autoPickup\AutoPickup.java|1687|1709|FMLInitializationEvent|class|net.minecraftforge.fml.common.event.FMLInitializationEvent
-      @|furgl\autoPickup\AutoPickup.java|1722|1744|registerEventListeners|method|furgl.autoPickup.AutoPickup|registerEventListeners|()V
-      @|furgl\autoPickup\AutoPickup.java|1750|1760|AutoPickup|class|furgl.autoPickup.AutoPickup
-      @|furgl\autoPickup\AutoPickup.java|1761|1766|proxy|field|furgl.autoPickup.AutoPickup|proxy
-      @|furgl\autoPickup\AutoPickup.java|1767|1771|init|method|furgl.autoPickup.CommonProxy|init|()V
+      @|furgl\autoPickup\AutoPickup.java|1712|1717|event|param|furgl.autoPickup.AutoPickup|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V|event|0
+      @|furgl\autoPickup\AutoPickup.java|1658|1670|EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler
+      @|furgl\autoPickup\AutoPickup.java|1684|1688|init|method|furgl.autoPickup.AutoPickup|init|(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
+      @|furgl\autoPickup\AutoPickup.java|1689|1711|FMLInitializationEvent|class|net.minecraftforge.fml.common.event.FMLInitializationEvent
+      @|furgl\autoPickup\AutoPickup.java|1724|1746|registerEventListeners|method|furgl.autoPickup.AutoPickup|registerEventListeners|()V
+      @|furgl\autoPickup\AutoPickup.java|1752|1762|AutoPickup|class|furgl.autoPickup.AutoPickup
+      @|furgl\autoPickup\AutoPickup.java|1763|1768|proxy|field|furgl.autoPickup.AutoPickup|proxy
+      @|furgl\autoPickup\AutoPickup.java|1769|1773|init|method|furgl.autoPickup.CommonProxy|init|()V
    Method End: init(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V
    Method Start: serverLoad(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
-      @|furgl\autoPickup\AutoPickup.java|1841|1846|event|param|furgl.autoPickup.AutoPickup|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
-      @|furgl\autoPickup\AutoPickup.java|1781|1793|EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler
-      @|furgl\autoPickup\AutoPickup.java|1807|1817|serverLoad|method|furgl.autoPickup.AutoPickup|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
-      @|furgl\autoPickup\AutoPickup.java|1818|1840|FMLServerStartingEvent|class|net.minecraftforge.fml.common.event.FMLServerStartingEvent
-      @|furgl\autoPickup\AutoPickup.java|1853|1858|event|param|furgl.autoPickup.AutoPickup|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
-      @|furgl\autoPickup\AutoPickup.java|1859|1880|registerServerCommand|method|net.minecraftforge.fml.common.event.FMLServerStartingEvent|registerServerCommand|(Lnet/minecraft/command/ICommand;)V
-      @|furgl\autoPickup\AutoPickup.java|1885|1901|CommandBlacklist|class|furgl.autoPickup.CommandBlacklist
+      @|furgl\autoPickup\AutoPickup.java|1843|1848|event|param|furgl.autoPickup.AutoPickup|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
+      @|furgl\autoPickup\AutoPickup.java|1783|1795|EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler
+      @|furgl\autoPickup\AutoPickup.java|1809|1819|serverLoad|method|furgl.autoPickup.AutoPickup|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
+      @|furgl\autoPickup\AutoPickup.java|1820|1842|FMLServerStartingEvent|class|net.minecraftforge.fml.common.event.FMLServerStartingEvent
+      @|furgl\autoPickup\AutoPickup.java|1855|1860|event|param|furgl.autoPickup.AutoPickup|serverLoad|(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V|event|0
+      @|furgl\autoPickup\AutoPickup.java|1861|1882|registerServerCommand|method|net.minecraftforge.fml.common.event.FMLServerStartingEvent|registerServerCommand|(Lnet/minecraft/command/ICommand;)V
+      @|furgl\autoPickup\AutoPickup.java|1887|1903|CommandBlacklist|class|furgl.autoPickup.CommandBlacklist
    Method End: serverLoad(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V
    Method Start: registerEventListeners()V
-      @|furgl\autoPickup\AutoPickup.java|1923|1945|registerEventListeners|method|furgl.autoPickup.AutoPickup|registerEventListeners|()V
-      @|furgl\autoPickup\AutoPickup.java|1954|1968|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
-      @|furgl\autoPickup\AutoPickup.java|1969|1978|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|furgl\autoPickup\AutoPickup.java|1979|1987|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|furgl\autoPickup\AutoPickup.java|1992|2010|DelayedPickupEvent|class|furgl.autoPickup.event.DelayedPickupEvent
-      @|furgl\autoPickup\AutoPickup.java|2017|2031|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
-      @|furgl\autoPickup\AutoPickup.java|2032|2041|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|furgl\autoPickup\AutoPickup.java|2042|2050|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|furgl\autoPickup\AutoPickup.java|2055|2078|PlaySoundAtEntityEvents|class|furgl.autoPickup.event.PlaySoundAtEntityEvents
-      @|furgl\autoPickup\AutoPickup.java|2085|2099|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
-      @|furgl\autoPickup\AutoPickup.java|2100|2109|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|furgl\autoPickup\AutoPickup.java|2110|2118|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|furgl\autoPickup\AutoPickup.java|2123|2145|EntityItemPickupEvents|class|furgl.autoPickup.event.EntityItemPickupEvents
-      @|furgl\autoPickup\AutoPickup.java|2152|2166|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
-      @|furgl\autoPickup\AutoPickup.java|2167|2176|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|furgl\autoPickup\AutoPickup.java|2177|2185|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|furgl\autoPickup\AutoPickup.java|2190|2204|ItemTossEvents|class|furgl.autoPickup.event.ItemTossEvents
-      @|furgl\autoPickup\AutoPickup.java|2211|2225|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
-      @|furgl\autoPickup\AutoPickup.java|2226|2235|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|furgl\autoPickup\AutoPickup.java|2236|2244|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|furgl\autoPickup\AutoPickup.java|2249|2258|IgnoreKey|class|furgl.autoPickup.IgnoreKey
-      @|furgl\autoPickup\AutoPickup.java|2265|2279|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
-      @|furgl\autoPickup\AutoPickup.java|2280|2289|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
-      @|furgl\autoPickup\AutoPickup.java|2290|2298|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
-      @|furgl\autoPickup\AutoPickup.java|2303|2321|DelayedPickupEvent|class|furgl.autoPickup.event.DelayedPickupEvent
+      @|furgl\autoPickup\AutoPickup.java|1925|1947|registerEventListeners|method|furgl.autoPickup.AutoPickup|registerEventListeners|()V
+      @|furgl\autoPickup\AutoPickup.java|1956|1970|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
+      @|furgl\autoPickup\AutoPickup.java|1971|1980|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|furgl\autoPickup\AutoPickup.java|1981|1989|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|furgl\autoPickup\AutoPickup.java|1994|2012|DelayedPickupEvent|class|furgl.autoPickup.event.DelayedPickupEvent
+      @|furgl\autoPickup\AutoPickup.java|2019|2033|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
+      @|furgl\autoPickup\AutoPickup.java|2034|2043|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|furgl\autoPickup\AutoPickup.java|2044|2052|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|furgl\autoPickup\AutoPickup.java|2057|2080|PlaySoundAtEntityEvents|class|furgl.autoPickup.event.PlaySoundAtEntityEvents
+      @|furgl\autoPickup\AutoPickup.java|2087|2101|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
+      @|furgl\autoPickup\AutoPickup.java|2102|2111|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|furgl\autoPickup\AutoPickup.java|2112|2120|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|furgl\autoPickup\AutoPickup.java|2125|2147|EntityItemPickupEvents|class|furgl.autoPickup.event.EntityItemPickupEvents
+      @|furgl\autoPickup\AutoPickup.java|2154|2168|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
+      @|furgl\autoPickup\AutoPickup.java|2169|2178|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|furgl\autoPickup\AutoPickup.java|2179|2187|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|furgl\autoPickup\AutoPickup.java|2192|2206|ItemTossEvents|class|furgl.autoPickup.event.ItemTossEvents
+      @|furgl\autoPickup\AutoPickup.java|2213|2227|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
+      @|furgl\autoPickup\AutoPickup.java|2228|2237|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|furgl\autoPickup\AutoPickup.java|2238|2246|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|furgl\autoPickup\AutoPickup.java|2251|2260|IgnoreKey|class|furgl.autoPickup.IgnoreKey
+      @|furgl\autoPickup\AutoPickup.java|2267|2281|MinecraftForge|class|net.minecraftforge.common.MinecraftForge
+      @|furgl\autoPickup\AutoPickup.java|2282|2291|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|furgl\autoPickup\AutoPickup.java|2292|2300|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|furgl\autoPickup\AutoPickup.java|2305|2323|DelayedPickupEvent|class|furgl.autoPickup.event.DelayedPickupEvent
    Method End: registerEventListeners()V
    Method Start: addItem(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z
-      @|furgl\autoPickup\AutoPickup.java|2374|2380|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
-      @|furgl\autoPickup\AutoPickup.java|2392|2401|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
-      @|furgl\autoPickup\AutoPickup.java|2411|2425|giveIfCreative|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|giveIfCreative|2
-      @|furgl\autoPickup\AutoPickup.java|2353|2360|addItem|method|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z
-      @|furgl\autoPickup\AutoPickup.java|2361|2373|EntityPlayer|class|net.minecraft.entity.player.EntityPlayer
-      @|furgl\autoPickup\AutoPickup.java|2382|2391|ItemStack|class|net.minecraft.item.ItemStack
-      @|furgl\autoPickup\AutoPickup.java|2437|2451|giveIfCreative|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|giveIfCreative|2
-      @|furgl\autoPickup\AutoPickup.java|2455|2461|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
-      @|furgl\autoPickup\AutoPickup.java|2462|2474|capabilities|field|net.minecraft.entity.player.EntityPlayer|capabilities
-      @|furgl\autoPickup\AutoPickup.java|2475|2489|isCreativeMode|field|net.minecraft.entity.player.PlayerCapabilities|isCreativeMode
-      @|furgl\autoPickup\AutoPickup.java|2509|2515|Config|class|furgl.autoPickup.Config
-      @|furgl\autoPickup\AutoPickup.java|2516|2530|syncFromConfig|method|furgl.autoPickup.Config|syncFromConfig|(Ljava/lang/String;)V
-      @|furgl\autoPickup\AutoPickup.java|2531|2537|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
-      @|furgl\autoPickup\AutoPickup.java|2538|2545|getName|method|net.minecraft.command.ICommandSender|getName|()Ljava/lang/String;
-      @|furgl\autoPickup\AutoPickup.java|2556|2565|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
-      @|furgl\autoPickup\AutoPickup.java|2579|2585|Config|class|furgl.autoPickup.Config
-      @|furgl\autoPickup\AutoPickup.java|2586|2600|blacklistNames|field|furgl.autoPickup.Config|blacklistNames
-      @|furgl\autoPickup\AutoPickup.java|2601|2609|contains|method|java.util.Collection|contains|(Ljava/lang/Object;)Z
-      @|furgl\autoPickup\AutoPickup.java|2610|2619|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
-      @|furgl\autoPickup\AutoPickup.java|2620|2627|getItem|method|net.minecraft.item.ItemStack|getItem|()Lnet/minecraft/item/Item;
-      @|furgl\autoPickup\AutoPickup.java|2630|2653|getItemStackDisplayName|method|net.minecraft.item.Item|getItemStackDisplayName|(Lnet/minecraft/item/ItemStack;)Ljava/lang/String;
-      @|furgl\autoPickup\AutoPickup.java|2654|2663|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
-      @|furgl\autoPickup\AutoPickup.java|2665|2672|replace|method|java.lang.String|replace|(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-      @|furgl\autoPickup\AutoPickup.java|2687|2696|IgnoreKey|class|furgl.autoPickup.IgnoreKey
-      @|furgl\autoPickup\AutoPickup.java|2697|2706|isPressed|field|furgl.autoPickup.IgnoreKey|isPressed
-      @|furgl\autoPickup\AutoPickup.java|2732|2738|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
-      @|furgl\autoPickup\AutoPickup.java|2739|2748|inventory|field|net.minecraft.entity.player.EntityPlayer|inventory
-      @|furgl\autoPickup\AutoPickup.java|2749|2772|addItemStackToInventory|method|net.minecraft.entity.player.InventoryPlayer|addItemStackToInventory|(Lnet/minecraft/item/ItemStack;)Z
-      @|furgl\autoPickup\AutoPickup.java|2773|2782|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
-      @|furgl\autoPickup\AutoPickup.java|2803|2809|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
-      @|furgl\autoPickup\AutoPickup.java|2810|2828|inventoryContainer|field|net.minecraft.entity.player.EntityPlayer|inventoryContainer
-      @|furgl\autoPickup\AutoPickup.java|2829|2849|detectAndSendChanges|method|net.minecraft.inventory.Container|detectAndSendChanges|()V
+      @|furgl\autoPickup\AutoPickup.java|2376|2382|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
+      @|furgl\autoPickup\AutoPickup.java|2394|2403|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
+      @|furgl\autoPickup\AutoPickup.java|2413|2427|giveIfCreative|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|giveIfCreative|2
+      @|furgl\autoPickup\AutoPickup.java|2355|2362|addItem|method|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z
+      @|furgl\autoPickup\AutoPickup.java|2363|2375|EntityPlayer|class|net.minecraft.entity.player.EntityPlayer
+      @|furgl\autoPickup\AutoPickup.java|2384|2393|ItemStack|class|net.minecraft.item.ItemStack
+      @|furgl\autoPickup\AutoPickup.java|2439|2453|giveIfCreative|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|giveIfCreative|2
+      @|furgl\autoPickup\AutoPickup.java|2457|2463|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
+      @|furgl\autoPickup\AutoPickup.java|2464|2476|capabilities|field|net.minecraft.entity.player.EntityPlayer|capabilities
+      @|furgl\autoPickup\AutoPickup.java|2477|2491|isCreativeMode|field|net.minecraft.entity.player.PlayerCapabilities|isCreativeMode
+      @|furgl\autoPickup\AutoPickup.java|2511|2517|Config|class|furgl.autoPickup.Config
+      @|furgl\autoPickup\AutoPickup.java|2518|2532|syncFromConfig|method|furgl.autoPickup.Config|syncFromConfig|(Ljava/lang/String;)V
+      @|furgl\autoPickup\AutoPickup.java|2533|2539|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
+      @|furgl\autoPickup\AutoPickup.java|2540|2547|getName|method|net.minecraft.command.ICommandSender|getName|()Ljava/lang/String;
+      @|furgl\autoPickup\AutoPickup.java|2558|2567|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
+      @|furgl\autoPickup\AutoPickup.java|2581|2587|Config|class|furgl.autoPickup.Config
+      @|furgl\autoPickup\AutoPickup.java|2588|2602|blacklistNames|field|furgl.autoPickup.Config|blacklistNames
+      @|furgl\autoPickup\AutoPickup.java|2603|2611|contains|method|java.util.Collection|contains|(Ljava/lang/Object;)Z
+      @|furgl\autoPickup\AutoPickup.java|2612|2621|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
+      @|furgl\autoPickup\AutoPickup.java|2622|2629|getItem|method|net.minecraft.item.ItemStack|getItem|()Lnet/minecraft/item/Item;
+      @|furgl\autoPickup\AutoPickup.java|2632|2655|getItemStackDisplayName|method|net.minecraft.item.Item|getItemStackDisplayName|(Lnet/minecraft/item/ItemStack;)Ljava/lang/String;
+      @|furgl\autoPickup\AutoPickup.java|2656|2665|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
+      @|furgl\autoPickup\AutoPickup.java|2667|2674|replace|method|java.lang.String|replace|(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+      @|furgl\autoPickup\AutoPickup.java|2689|2698|IgnoreKey|class|furgl.autoPickup.IgnoreKey
+      @|furgl\autoPickup\AutoPickup.java|2699|2708|isPressed|field|furgl.autoPickup.IgnoreKey|isPressed
+      @|furgl\autoPickup\AutoPickup.java|2734|2740|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
+      @|furgl\autoPickup\AutoPickup.java|2741|2750|inventory|field|net.minecraft.entity.player.EntityPlayer|inventory
+      @|furgl\autoPickup\AutoPickup.java|2751|2774|addItemStackToInventory|method|net.minecraft.entity.player.InventoryPlayer|addItemStackToInventory|(Lnet/minecraft/item/ItemStack;)Z
+      @|furgl\autoPickup\AutoPickup.java|2775|2784|itemStack|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|itemStack|1
+      @|furgl\autoPickup\AutoPickup.java|2805|2811|player|param|furgl.autoPickup.AutoPickup|addItem|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z|player|0
+      @|furgl\autoPickup\AutoPickup.java|2812|2830|inventoryContainer|field|net.minecraft.entity.player.EntityPlayer|inventoryContainer
+      @|furgl\autoPickup\AutoPickup.java|2831|2851|detectAndSendChanges|method|net.minecraft.inventory.Container|detectAndSendChanges|()V
    Method End: addItem(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Z)Z
 Class End  : furgl.autoPickup.AutoPickup
 endProcessing "furgl\autoPickup\AutoPickup.java"
