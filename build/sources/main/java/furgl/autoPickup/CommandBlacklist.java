@@ -37,7 +37,7 @@ public class CommandBlacklist extends CommandBase
 	private static Collection getDisplayNames()
 	{
 		if (displayNames == null)
-			displayNames = convertToDisplayNames(Item.REGISTRY.getKeys());
+			displayNames = convertToDisplayNames(Item.itemRegistry.getKeys());
 		return displayNames;
 	}
 
@@ -101,21 +101,21 @@ public class CommandBlacklist extends CommandBase
 		Config.syncFromConfig(sender.getName());
 		if (args.length == 0)
 		{
-			sender.addChatMessage(new TextComponentString("[AutoPickup] Blacklist Contains:").setStyle(new Style().setColor(TextFormatting.DARK_AQUA)));
+			sender.addChatMessage(new TextComponentString("[AutoPickup] Blacklist Contains:").setChatStyle(new Style().setColor(TextFormatting.DARK_AQUA)));
 			for (int i=0; i < Config.blacklistNames.size(); i++)
-				sender.addChatMessage(new TextComponentString("- "+Config.blacklistNames.get(i)).setStyle(new Style().setColor(TextFormatting.AQUA)));
+				sender.addChatMessage(new TextComponentString("- "+Config.blacklistNames.get(i)).setChatStyle(new Style().setColor(TextFormatting.AQUA)));
 			return;
 		}
 		else if (args.length == 1 && args[0].equalsIgnoreCase("clear"))
 		{
 			Config.blacklistNames.clear();
 			Config.syncToConfig(sender.getName());
-			sender.addChatMessage(new TextComponentString("[AutoPickup] Blacklist cleared.").setStyle(new Style().setColor(TextFormatting.RED)));
+			sender.addChatMessage(new TextComponentString("[AutoPickup] Blacklist cleared.").setChatStyle(new Style().setColor(TextFormatting.RED)));
 			return;
 		}
 		else if (args.length == 1 && args[0].equalsIgnoreCase("AutoAdd"))
 		{
-			sender.addChatMessage(new TextComponentString("[AutoPickup] AutoAdd is currently "+(Config.autoAdd ? "enabled." : "disabled.")).setStyle(new Style().setColor(TextFormatting.RED)));
+			sender.addChatMessage(new TextComponentString("[AutoPickup] AutoAdd is currently "+(Config.autoAdd ? "enabled." : "disabled.")).setChatStyle(new Style().setColor(TextFormatting.RED)));
 			return;
 		}
 		else if (args.length == 2 && args[0].equalsIgnoreCase("AutoAdd"))
@@ -124,19 +124,19 @@ public class CommandBlacklist extends CommandBase
 			{
 				Config.autoAdd = true;
 				Config.syncToConfig(sender.getName());
-				sender.addChatMessage(new TextComponentString("[AutoPickup] AutoAdd enabled.").setStyle(new Style().setColor(TextFormatting.RED)));
+				sender.addChatMessage(new TextComponentString("[AutoPickup] AutoAdd enabled.").setChatStyle(new Style().setColor(TextFormatting.RED)));
 				return;
 			}
 			else if (args[1].equalsIgnoreCase("false"))
 			{
 				Config.autoAdd = false;
 				Config.syncToConfig(sender.getName());
-				sender.addChatMessage(new TextComponentString("[AutoPickup] AutoAdd disabled.").setStyle(new Style().setColor(TextFormatting.RED)));
+				sender.addChatMessage(new TextComponentString("[AutoPickup] AutoAdd disabled.").setChatStyle(new Style().setColor(TextFormatting.RED)));
 				return;
 			}
 			else
 			{
-				sender.addChatMessage(new TextComponentString("Usage: /b AutoAdd [true/false]").setStyle(new Style().setColor(TextFormatting.RED)));
+				sender.addChatMessage(new TextComponentString("Usage: /b AutoAdd [true/false]").setChatStyle(new Style().setColor(TextFormatting.RED)));
 				return;
 			}
 		}
@@ -146,14 +146,14 @@ public class CommandBlacklist extends CommandBase
 			{													
 				if (Config.blacklistNames.contains(args[1]))
 				{
-					sender.addChatMessage(new TextComponentString("[AutoPickup] Blacklist already contains "+args[1]+".").setStyle(new Style().setColor(TextFormatting.RED)));
+					sender.addChatMessage(new TextComponentString("[AutoPickup] Blacklist already contains "+args[1]+".").setChatStyle(new Style().setColor(TextFormatting.RED)));
 					return;	
 				}			
 				else if (getDisplayNames().contains(args[1]))
 				{
 					Config.blacklistNames.add(args[1]);
 					Config.syncToConfig(sender.getName());
-					sender.addChatMessage(new TextComponentString("[AutoPickup] Added "+args[1]+" to blacklist.").setStyle(new Style().setColor(TextFormatting.DARK_GREEN)));
+					sender.addChatMessage(new TextComponentString("[AutoPickup] Added "+args[1]+" to blacklist.").setChatStyle(new Style().setColor(TextFormatting.DARK_GREEN)));
 					return;
 				}
 			}
@@ -163,22 +163,22 @@ public class CommandBlacklist extends CommandBase
 				{
 					Config.blacklistNames.remove(args[1]);
 					Config.syncToConfig(sender.getName());
-					sender.addChatMessage(new TextComponentString("[AutoPickup] Removed "+args[1]+" from blacklist.").setStyle(new Style().setColor(TextFormatting.GOLD)));
+					sender.addChatMessage(new TextComponentString("[AutoPickup] Removed "+args[1]+" from blacklist.").setChatStyle(new Style().setColor(TextFormatting.GOLD)));
 					return;
 				}
 				else
 				{
-					sender.addChatMessage(new TextComponentString("[AutoPickup] Blacklist does not contain "+args[1]+".").setStyle(new Style().setColor(TextFormatting.RED)));
+					sender.addChatMessage(new TextComponentString("[AutoPickup] Blacklist does not contain "+args[1]+".").setChatStyle(new Style().setColor(TextFormatting.RED)));
 					return;
 				}
 			}
 			else
 			{
-				sender.addChatMessage(new TextComponentString("Usage: /b <action> [<item>]").setStyle(new Style().setColor(TextFormatting.RED)));
+				sender.addChatMessage(new TextComponentString("Usage: /b <action> [<item>]").setChatStyle(new Style().setColor(TextFormatting.RED)));
 				return;
 			}
 		}
-		sender.addChatMessage(new TextComponentString("Usage: /b <action> [<item/true/false>]").setStyle(new Style().setColor(TextFormatting.RED)));
+		sender.addChatMessage(new TextComponentString("Usage: /b <action> [<item/true/false>]").setChatStyle(new Style().setColor(TextFormatting.RED)));
 	}
 
 	private String addCaps(String string) 

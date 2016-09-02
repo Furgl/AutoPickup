@@ -1,7 +1,5 @@
-This mapping 'snapshot_20160518' was designed for MC 1.9.4! Use at your own peril.This mapping 'snapshot_20160518' was designed for MC 1.9.4! Use at your own peril.
-
 #################################################
-         ForgeGradle 2.2-SNAPSHOT-c438b06        
+         ForgeGradle 2.1-SNAPSHOT-da90449        
   https://github.com/MinecraftForge/ForgeGradle  
 #################################################
                Powered by MCP unknown               
@@ -11,20 +9,20 @@ This mapping 'snapshot_20160518' was designed for MC 1.9.4! Use at your own peri
 #################################################
 :deobfCompileDummyTask
 :deobfProvidedDummyTask
-:sourceApiJava UP-TO-DATE
+:sourceApiJava
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
 :sourceMainJava
 :compileJavawarning: [options] bootstrap class path not set in conjunction with -source 1.7
-Note: C:\Users\Jake\Desktop\Modding\Jake's Modding\Auto Pickup 1.10.2\build\sources\main\java\furgl\autoPickup\CommandBlacklist.java uses unchecked or unsafe operations.
+Note: C:\Users\Jake\Desktop\Modding\Jake's Modding\Auto Pickup 1.9\build\sources\main\java\furgl\autoPickup\CommandBlacklist.java uses unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
 1 warning
 
 :processResources
 :classes
 :jar
-:sourceTestJava UP-TO-DATE
+:sourceTestJava
 :compileTestJava UP-TO-DATE
 :processTestResources UP-TO-DATE
 :testClasses UP-TO-DATE
@@ -36,7 +34,7 @@ Note: Recompile with -Xlint:unchecked for details.
 :genSrgs SKIPPED
 :reobfJar
 :extractRangemapReplacedMain
-C:\Users\Jake\Desktop\Modding\Jake's Modding\Auto Pickup 1.10.2\build\sources\main\java
+C:\Users\Jake\Desktop\Modding\Jake's Modding\Auto Pickup 1.9\build\sources\main\java
 :retromapReplacedMain
 remapping source...
 :sourceJar
@@ -46,4 +44,4 @@ remapping source...
 
 BUILD SUCCESSFUL
 
-Total time: 21.913 secs
+Total time: 29.521 secs

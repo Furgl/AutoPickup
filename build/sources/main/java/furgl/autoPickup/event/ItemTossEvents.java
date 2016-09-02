@@ -22,10 +22,10 @@ public class ItemTossEvents
 			if (!Config.blacklistNames.contains(name))
 			{
 				Config.blacklistNames.add(name);
-				event.getPlayer().addChatMessage(new TextComponentString("[AutoPickup] AutoAdd: Added "+name+" to blacklist.").setStyle(new Style().setColor(TextFormatting.DARK_GREEN)));
+				event.getPlayer().addChatMessage(new TextComponentString("[AutoPickup] AutoAdd: Added "+name+" to blacklist.").setChatStyle(new Style().setColor(TextFormatting.DARK_GREEN)));
 				if (Config.firstAutoAdd)
 				{
-					event.getPlayer().addChatMessage(new TextComponentString("Tip: You can disable AutoAdd using /b AutoAdd false").setStyle(new Style().setItalic(true).setColor(TextFormatting.RED)));
+					event.getPlayer().addChatMessage(new TextComponentString("Tip: You can disable AutoAdd using /b AutoAdd false").setChatStyle(new Style().setItalic(true).setColor(TextFormatting.RED)));
 					Config.firstAutoAdd = false;
 				}
 				Config.syncToConfig(event.getPlayer().getName());

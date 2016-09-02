@@ -100,7 +100,7 @@ public class DelayedPickupEvent
 		{
 			if (MinecraftForge.EVENT_BUS.post(new PlayerPickupXpEvent(event.getAttackingPlayer(), new EntityXPOrb(event.getAttackingPlayer().worldObj, event.getAttackingPlayer().posX, event.getAttackingPlayer().posY, event.getAttackingPlayer().posZ, event.getDroppedExperience())))) return;
 			event.getAttackingPlayer().xpCooldown = 2;
-			event.getAttackingPlayer().worldObj.playSound(event.getAttackingPlayer(), new BlockPos(event.getAttackingPlayer()), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.AMBIENT, 0.1F, 0.5F * ((event.getAttackingPlayer().worldObj.rand.nextFloat() - event.getAttackingPlayer().worldObj.rand.nextFloat()) * 0.7F + 1.8F));
+			event.getAttackingPlayer().worldObj.playSound(event.getAttackingPlayer(), new BlockPos(event.getAttackingPlayer()), SoundEvents.entity_experience_orb_pickup, SoundCategory.AMBIENT, 0.1F, 0.5F * ((event.getAttackingPlayer().worldObj.rand.nextFloat() - event.getAttackingPlayer().worldObj.rand.nextFloat()) * 0.7F + 1.8F));
 			event.getAttackingPlayer().addExperience(event.getDroppedExperience());
 			event.setDroppedExperience(0);
 		}

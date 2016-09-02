@@ -1,0 +1,66 @@
+[21:16:34] [main/INFO]: Logging in with username & password
+[21:16:38] [Client thread/INFO]: Setting user: Furgl
+[21:16:42] [Client thread/INFO]: LWJGL Version: 2.9.4
+[21:16:47] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:AutoPickup
+[21:16:50] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[21:16:50] [Thread-8/INFO]: Initializing LWJGL OpenAL
+[21:16:50] [Thread-8/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[21:16:51] [Thread-8/INFO]: OpenAL initialized.
+[21:16:51] [Sound Library Loader/INFO]: Sound engine started
+[21:16:57] [Client thread/INFO]: Created: 16x16 textures-atlas
+[21:16:59] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:AutoPickup
+[21:17:02] [Client thread/INFO]: SoundSystem shutting down...
+[21:17:02] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[21:17:02] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[21:17:02] [Thread-10/INFO]: Initializing LWJGL OpenAL
+[21:17:02] [Thread-10/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[21:17:02] [Thread-10/INFO]: OpenAL initialized.
+[21:17:02] [Sound Library Loader/INFO]: Sound engine started
+[21:17:06] [Client thread/INFO]: Created: 1024x512 textures-atlas
+[21:18:10] [Server thread/INFO]: Starting integrated minecraft server version 1.9
+[21:18:10] [Server thread/INFO]: Generating keypair
+[21:18:11] [Server thread/INFO]: Preparing start region for level 0
+[21:18:11] [Server thread/INFO]: Changing view distance to 12, from 10
+[21:18:12] [Server thread/INFO]: Furgl[local:E:ca85a3bf] logged in with entity id 1 at (12.91470045974371, 4.0, -773.6249064012991)
+[21:18:12] [Server thread/INFO]: Furgl joined the game
+[21:18:13] [Server thread/INFO]: Saving and pausing game...
+[21:18:13] [Server thread/INFO]: Saving chunks for level 'Flat'/Overworld
+[21:18:13] [Server thread/INFO]: Saving chunks for level 'Flat'/Nether
+[21:18:13] [Server thread/INFO]: Saving chunks for level 'Flat'/The End
+[21:18:18] [Client thread/INFO]: [CHAT] [AutoPickup] AutoAdd: Added Raw_Mutton to blacklist.
+[21:18:18] [Client thread/INFO]: [CHAT] Tip: You can disable AutoAdd using /b AutoAdd false
+[21:18:19] [Client thread/INFO]: [CHAT] [AutoPickup] AutoAdd: Added Wool to blacklist.
+[21:18:26] [Client thread/INFO]: [CHAT] [AutoPickup] Blacklist cleared.
+[21:18:27] [Client thread/INFO]: [CHAT] [AutoPickup] AutoAdd: Added Raw_Mutton to blacklist.
+[21:18:27] [Client thread/INFO]: [CHAT] [AutoPickup] AutoAdd: Added Wool to blacklist.
+[21:18:32] [Client thread/INFO]: [CHAT] ShulkerBullet, Shulker, Sheep
+[21:18:32] [Server thread/INFO]: [Furgl: Object successfully summoned]
+[21:18:32] [Client thread/INFO]: [CHAT] Object successfully summoned
+[21:18:36] [Client thread/INFO]: [CHAT] SpectralArrow, SnowMan, Snowball, Silverfish, ShulkerBullet, Shulker, Squid, Skeleton, SmallFireball, Slime, Spider, Sheep
+[21:18:36] [Client thread/INFO]: [CHAT] SpectralArrow, SnowMan, Snowball, Silverfish, ShulkerBullet, Shulker, Squid, Skeleton, SmallFireball, Slime, Spider, Sheep
+[21:18:36] [Client thread/INFO]: [CHAT] SpectralArrow, SnowMan, Snowball, Silverfish, ShulkerBullet, Shulker, Squid, Skeleton, SmallFireball, Slime, Spider, Sheep
+[21:18:37] [Client thread/INFO]: [CHAT] SpectralArrow, SnowMan, Snowball, Silverfish, ShulkerBullet, Shulker, Squid, Skeleton, SmallFireball, Slime, Spider, Sheep
+[21:18:40] [Server thread/WARN]: Skipping Entity with id sheep
+[21:18:40] [Client thread/INFO]: [CHAT] Unable to summon object
+[21:18:43] [Server thread/INFO]: [Furgl: Object successfully summoned]
+[21:18:43] [Client thread/INFO]: [CHAT] Object successfully summoned
+[21:19:12] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 21585ms behind, skipping 431 tick(s)
+[21:19:20] [Client thread/INFO]: [CHAT] [AutoPickup] Blacklist cleared.
+[21:19:22] [Server thread/INFO]: [Furgl: Object successfully summoned]
+[21:19:22] [Client thread/INFO]: [CHAT] Object successfully summoned
+[21:19:45] [Server thread/INFO]: [Furgl: Object successfully summoned]
+[21:19:45] [Client thread/INFO]: [CHAT] Object successfully summoned
+[21:20:05] [Client thread/INFO]: [CHAT] [AutoPickup] AutoAdd: Added Dirt to blacklist.
+[21:20:27] [Server thread/INFO]: Saving and pausing game...
+[21:20:27] [Server thread/INFO]: Saving chunks for level 'Flat'/Overworld
+[21:20:27] [Server thread/INFO]: Saving chunks for level 'Flat'/Nether
+[21:20:27] [Server thread/INFO]: Saving chunks for level 'Flat'/The End
+[21:20:28] [Server thread/INFO]: Stopping server
+[21:20:28] [Server thread/INFO]: Saving players
+[21:20:28] [Server thread/INFO]: Saving worlds
+[21:20:28] [Server thread/INFO]: Saving chunks for level 'Flat'/Overworld
+[21:20:28] [Server thread/INFO]: Saving chunks for level 'Flat'/Nether
+[21:20:28] [Server thread/INFO]: Saving chunks for level 'Flat'/The End
+[21:20:29] [Client thread/INFO]: Stopping!
+[21:20:29] [Client thread/INFO]: SoundSystem shutting down...
+[21:20:29] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
