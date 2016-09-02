@@ -51,11 +51,11 @@ public class CommandBlacklist extends CommandBase
 		{
 			try 
 			{
-				Item item = getItemByText(null, (String) iterator.next());
+				Item item = getItemByText(null, (String) iterator.next());/*
 				ArrayList<ItemStack> subItems = new ArrayList<ItemStack>();
 				item.getSubItems(item, item.getCreativeTab(), subItems);
-				for (ItemStack stack : subItems)
-					displayNames.add((String) item.getItemStackDisplayName(stack).replace(" ", "_"));
+				for (ItemStack stack : subItems)*/
+					displayNames.add((String) item.getItemStackDisplayName(new ItemStack(item)).replace(" ", "_"));
 			} 
 			catch (Exception e) 
 			{

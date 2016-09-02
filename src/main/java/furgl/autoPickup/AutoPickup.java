@@ -1,11 +1,9 @@
 package furgl.autoPickup;
 
-import org.lwjgl.input.Keyboard;
-
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
@@ -17,7 +15,6 @@ import furgl.autoPickup.event.EntityItemPickupEvents;
 import furgl.autoPickup.event.EntityJoinWorldEvents;
 import furgl.autoPickup.event.ItemTossEvents;
 import furgl.autoPickup.event.PlaySoundAtEntityEvents;
-import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,10 +24,11 @@ public class AutoPickup
 {
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "2.0";
+	public static final String VERSION = "2.1";
 
 	public static SimpleNetworkWrapper network;
-	public static KeyBinding ignoreBlacklist = new KeyBinding("Ignore Blacklist", Keyboard.KEY_LMENU, "Auto Pickup");
+	@SidedProxy(clientSide = "furgl.autoPickup.ClientProxy", serverSide = "furgl.autoPickup.CommonProxy")
+	public static CommonProxy proxy;	
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -44,7 +42,7 @@ public class AutoPickup
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		ClientRegistry.registerKeyBinding(ignoreBlacklist);
+		AutoPickup.proxy.init();
 	}
 
 
