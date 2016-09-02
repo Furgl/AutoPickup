@@ -1,1 +1,42 @@
-/bin/
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+saves
+screenshots
+logs
+config
+crash-reports
+world
+whitelist.json
+usercache.json
+usernamecache.json
+servers.dat
+server.properties
+options.txt
+ops.json
+Paulscode*
+banned-*
+CREDITS-fml.txt
+forge-*changelog.txt
+LICENSE-fml.txt
+MinecraftForge-*.txt
+README.txt

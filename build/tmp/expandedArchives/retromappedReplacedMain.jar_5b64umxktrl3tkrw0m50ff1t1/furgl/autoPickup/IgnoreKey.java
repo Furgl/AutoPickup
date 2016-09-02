@@ -21,9 +21,9 @@ public class IgnoreKey
 	{
 		if (event.side == Side.CLIENT && event.phase == Phase.START)
 		{
-			if ((AutoPickup.ignoreBlacklist.func_151468_f() || AutoPickup.ignoreBlacklist.func_151470_d()) != isPressed)
+			if ((((ClientProxy)AutoPickup.proxy).ignoreBlacklist.func_151468_f() || ((ClientProxy)AutoPickup.proxy).ignoreBlacklist.func_151470_d()) != isPressed)
 			{
-				isPressed = AutoPickup.ignoreBlacklist.func_151468_f() || AutoPickup.ignoreBlacklist.func_151470_d();
+				isPressed = ((ClientProxy)AutoPickup.proxy).ignoreBlacklist.func_151468_f() || ((ClientProxy)AutoPickup.proxy).ignoreBlacklist.func_151470_d();
 				AutoPickup.network.sendToServer(new PacketIgnoreKey(isPressed));
 			}
 		}
