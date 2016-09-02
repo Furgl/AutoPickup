@@ -54,11 +54,8 @@ public class CommandBlacklist extends CommandBase
 			try 
 			{
 				Item item = getItemByText(null, ((ResourceLocation) iterator.next()).toString());
-				/*ArrayList<ItemStack> subItems = new ArrayList<ItemStack>();
-				item.getSubItems(item, item.getCreativeTab(), subItems);
-				for (ItemStack stack : subItems)*/
-					displayNames.add((String) item.getItemStackDisplayName(new ItemStack(item)).replace(" ", "_"));
-			} 
+				displayNames.add((String) item.getItemStackDisplayName(new ItemStack(item)).replace(" ", "_"));
+			}
 			catch (Exception e) 
 			{
 				e.printStackTrace();

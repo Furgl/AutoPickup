@@ -1,10 +1,10 @@
 # eclipse
+bin
 *.launch
-/.settings
-/.metadata
-/.classpath
-/.project
-/eclipse
+.settings
+.metadata
+.classpath
+.project
 
 # idea
 out
@@ -18,9 +18,14 @@ build
 .gradle
 
 # other
-/bin
+eclipse
+run
+saves
+screenshots
 logs
+config
 crash-reports
+world
 whitelist.json
 usercache.json
 usernamecache.json
