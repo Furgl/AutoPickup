@@ -1,11 +1,42 @@
 Symbol range map extraction starting
-Processing 9 files
-processing furgl\autoPickup\AutoPickup.java
-processing furgl\autoPickup\CommandBlacklist.java
-processing furgl\autoPickup\Config.java
-processing furgl\autoPickup\IgnoreKey.java
-processing furgl\autoPickup\PacketIgnoreKey.java
-processing furgl\autoPickup\event\DelayedPickupEvent.java
-processing furgl\autoPickup\event\EntityItemPickupEvents.java
-processing furgl\autoPickup\event\ItemTossEvents.java
-processing furgl\autoPickup\event\PlaySoundAtEntityEvents.java
+Processing 11 files
+startProcessing "furgl\autoPickup\AutoPickup.java" md5: 9828c32489e5dab1200a5f2c25cbe17c
+endProcessing "furgl\autoPickup\AutoPickup.java"
+
+startProcessing "furgl\autoPickup\ClientProxy.java" md5: 86e3678b48b020af9033f20af627cccf
+endProcessing "furgl\autoPickup\ClientProxy.java"
+
+startProcessing "furgl\autoPickup\CommandBlacklist.java" md5: 23b659eaf8bb8f4d8179c003d6a0c8c5
+Cache Hit!
+endProcessing "furgl\autoPickup\CommandBlacklist.java"
+
+startProcessing "furgl\autoPickup\CommonProxy.java" md5: e3a94840f658e4e11881d2114aa17de7
+endProcessing "furgl\autoPickup\CommonProxy.java"
+
+startProcessing "furgl\autoPickup\Config.java" md5: a85c2653ddd0e93943c5919d498f5406
+Cache Hit!
+endProcessing "furgl\autoPickup\Config.java"
+
+startProcessing "furgl\autoPickup\IgnoreKey.java" md5: 137fc1a304b4b3ef8d03208f6bce2a13
+endProcessing "furgl\autoPickup\IgnoreKey.java"
+
+startProcessing "furgl\autoPickup\PacketIgnoreKey.java" md5: 69aee2fa059386f6b144b5ca0567f1b8
+Cache Hit!
+endProcessing "furgl\autoPickup\PacketIgnoreKey.java"
+
+startProcessing "furgl\autoPickup\event\DelayedPickupEvent.java" md5: ef9d293a5950e433610eb32647d168e4
+Cache Hit!
+endProcessing "furgl\autoPickup\event\DelayedPickupEvent.java"
+
+startProcessing "furgl\autoPickup\event\EntityItemPickupEvents.java" md5: 548ba521954c75ecbec9ed7359abe8ca
+Cache Hit!
+endProcessing "furgl\autoPickup\event\EntityItemPickupEvents.java"
+
+startProcessing "furgl\autoPickup\event\ItemTossEvents.java" md5: 883cdf28bbf0b2557c242d5670384802
+Cache Hit!
+endProcessing "furgl\autoPickup\event\ItemTossEvents.java"
+
+startProcessing "furgl\autoPickup\event\PlaySoundAtEntityEvents.java" md5: 2118b6def1f6f751cc4aa8c3074279bf
+Cache Hit!
+endProcessing "furgl\autoPickup\event\PlaySoundAtEntityEvents.java"
+

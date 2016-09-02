@@ -21,9 +21,9 @@ public class IgnoreKey
 	{
 		if (event.side == Side.CLIENT && event.phase == Phase.START)
 		{
-			if ((AutoPickup.ignoreBlacklist.isPressed() || AutoPickup.ignoreBlacklist.isKeyDown()) != isPressed)
+			if ((((ClientProxy)AutoPickup.proxy).ignoreBlacklist.isPressed() || ((ClientProxy)AutoPickup.proxy).ignoreBlacklist.isKeyDown()) != isPressed)
 			{
-				isPressed = AutoPickup.ignoreBlacklist.isPressed() || AutoPickup.ignoreBlacklist.isKeyDown();
+				isPressed = ((ClientProxy)AutoPickup.proxy).ignoreBlacklist.isPressed() || ((ClientProxy)AutoPickup.proxy).ignoreBlacklist.isKeyDown();
 				AutoPickup.network.sendToServer(new PacketIgnoreKey(isPressed));
 			}
 		}
