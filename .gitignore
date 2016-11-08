@@ -1,9 +1,10 @@
+# eclipse
+bin
 *.launch
-/.settings
-/.metadata
-/.classpath
-/.project
-/eclipse
+.settings
+.metadata
+.classpath
+.project
 
 # idea
 out
@@ -17,20 +18,23 @@ build
 .gradle
 
 # other
-/bin
-logs
-crash-reports
-whitelist.json
-usercache.json
-usernamecache.json
-servers.dat
-server.properties
+eclipse
+run
+saves/
+config/
+world/
 options.txt
+banned-ips.json
+banned-players.json
 ops.json
-Paulscode*
-banned-*
-CREDITS-fml.txt
-forge-*changelog.txt
-LICENSE-fml.txt
-MinecraftForge-*.txt
-README.txt
+username.json
+usernamecache.json
+server.properties
+servers.dat
+usercache.json
+whitelist.json
+logs/
+crash-reports/
+*.launch
+# Minecraft
+minecraft
