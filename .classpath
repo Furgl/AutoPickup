@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="output" path="bin"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry sourcepath="C:/Users/Jake/.gradle/caches/minecraft/net/minecraftforge/forge/1.9-12.16.1.1887/snapshot/20160312/forgeSrc-1.9-12.16.1.1887-sources.jar" kind="lib" path="C:/Users/Jake/.gradle/caches/minecraft/net/minecraftforge/forge/1.9-12.16.1.1887/snapshot/20160312/forgeSrc-1.9-12.16.1.1887.jar"/>
 	<classpathentry sourcepath="C:/Users/Jake/.gradle/caches/modules-2/files-2.1/com.mojang/netty/1.6/cd01cc3788bac1b1eb9cf2cda02fc7698a5ca1cc/netty-1.6-sources.jar" kind="lib" path="C:/Users/Jake/.gradle/caches/modules-2/files-2.1/com.mojang/netty/1.6/4b75825a06139752bd800d9e29c5fd55b8b1b1e4/netty-1.6.jar"/>
 	<classpathentry sourcepath="C:/Users/Jake/.gradle/caches/modules-2/files-2.1/oshi-project/oshi-core/1.1/1ec1ab1e6ac5a1572edfd0dd9ac95e83684b8a65/oshi-core-1.1-sources.jar" kind="lib" path="C:/Users/Jake/.gradle/caches/modules-2/files-2.1/oshi-project/oshi-core/1.1/9ddf7b048a8d701be231c0f4f95fd986198fd2d8/oshi-core-1.1.jar"/>

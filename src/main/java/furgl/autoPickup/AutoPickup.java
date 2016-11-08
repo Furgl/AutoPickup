@@ -22,8 +22,8 @@ public class AutoPickup
 {
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "2.1";
-	//test comment
+	public static final String VERSION = "2.2";
+	
 	public static SimpleNetworkWrapper network;
 	@SidedProxy(clientSide = "furgl.autoPickup.ClientProxy", serverSide = "furgl.autoPickup.CommonProxy")
 	public static CommonProxy proxy;

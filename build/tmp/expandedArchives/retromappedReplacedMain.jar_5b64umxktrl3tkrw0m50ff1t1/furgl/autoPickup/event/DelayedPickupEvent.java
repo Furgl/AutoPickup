@@ -7,17 +7,12 @@ import furgl.autoPickup.AutoPickup;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
-import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -98,10 +93,8 @@ public class DelayedPickupEvent
 	{
 		if (!event.getEntity().field_70170_p.field_72995_K && event.getAttackingPlayer() != null)
 		{
-			if (MinecraftForge.EVENT_BUS.post(new PlayerPickupXpEvent(event.getAttackingPlayer(), new EntityXPOrb(event.getAttackingPlayer().field_70170_p, event.getAttackingPlayer().field_70165_t, event.getAttackingPlayer().field_70163_u, event.getAttackingPlayer().field_70161_v, event.getDroppedExperience())))) return;
-			event.getAttackingPlayer().field_71090_bL = 2;
-			event.getAttackingPlayer().field_70170_p.func_184133_a(event.getAttackingPlayer(), new BlockPos(event.getAttackingPlayer()), SoundEvents.field_187604_bf, SoundCategory.AMBIENT, 0.1F, 0.5F * ((event.getAttackingPlayer().field_70170_p.field_73012_v.nextFloat() - event.getAttackingPlayer().field_70170_p.field_73012_v.nextFloat()) * 0.7F + 1.8F));
-			event.getAttackingPlayer().func_71023_q(event.getDroppedExperience());
+			EntityXPOrb xp = new EntityXPOrb(event.getEntity().field_70170_p, event.getAttackingPlayer().field_70165_t, event.getAttackingPlayer().field_70163_u, event.getAttackingPlayer().field_70161_v, event.getDroppedExperience());
+			event.getEntity().field_70170_p.func_72838_d(xp);
 			event.setDroppedExperience(0);
 		}
 	}
