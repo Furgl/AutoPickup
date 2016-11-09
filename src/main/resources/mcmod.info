@@ -3,7 +3,7 @@
   "modid": "autopickup",
   "name": "AutoPickup",
   "description": "Allows items to be picked up automatically or blacklisted and never picked up.",
-  "version": "2.1",
+  "version": "2.2",
   "mcversion": "1.10.2",
   "url": "https://sites.google.com/site/furglsmods/auto-pickup",
   "updateUrl": "",

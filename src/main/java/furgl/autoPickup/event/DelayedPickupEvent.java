@@ -7,17 +7,12 @@ import furgl.autoPickup.AutoPickup;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
-import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -98,10 +93,8 @@ public class DelayedPickupEvent
 	{
 		if (!event.getEntity().worldObj.isRemote && event.getAttackingPlayer() != null)
 		{
-			if (MinecraftForge.EVENT_BUS.post(new PlayerPickupXpEvent(event.getAttackingPlayer(), new EntityXPOrb(event.getAttackingPlayer().worldObj, event.getAttackingPlayer().posX, event.getAttackingPlayer().posY, event.getAttackingPlayer().posZ, event.getDroppedExperience())))) return;
-			event.getAttackingPlayer().xpCooldown = 2;
-			event.getAttackingPlayer().worldObj.playSound(event.getAttackingPlayer(), new BlockPos(event.getAttackingPlayer()), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.AMBIENT, 0.1F, 0.5F * ((event.getAttackingPlayer().worldObj.rand.nextFloat() - event.getAttackingPlayer().worldObj.rand.nextFloat()) * 0.7F + 1.8F));
-			event.getAttackingPlayer().addExperience(event.getDroppedExperience());
+			EntityXPOrb xp = new EntityXPOrb(event.getEntity().worldObj, event.getAttackingPlayer().posX, event.getAttackingPlayer().posY, event.getAttackingPlayer().posZ, event.getDroppedExperience());
+			event.getEntity().worldObj.spawnEntityInWorld(xp);
 			event.setDroppedExperience(0);
 		}
 	}
