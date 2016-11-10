@@ -13,8 +13,8 @@ public class ItemTossEvents
 {
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(ItemTossEvent event)
-	{																	//can only be called on client side
-		if (Config.autoAdd && !event.getPlayer().worldObj.isRemote /* && Minecraft.getMinecraft().currentScreen instanceof GuiInventory*/)
+	{
+		if (Config.autoAdd && !event.getPlayer().worldObj.isRemote)
 		{
 			Config.syncFromConfig(event.getPlayer().getName());
 			ItemStack stack = event.getEntityItem().getEntityItem();

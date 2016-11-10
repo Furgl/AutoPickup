@@ -41,12 +41,15 @@ public class DelayedPickupEvent
 			List<EntityItem> items = event.world.getEntitiesWithinAABB(EntityItem.class, aabb.get(0));
 			for (EntityItem item : items)
 				AutoPickup.addItem(players.get(0), item.getEntityItem(), true);
+			List<EntityXPOrb> xpOrbs = event.world.getEntitiesWithinAABB(EntityXPOrb.class, aabb.get(0));
+			for (EntityXPOrb xp : xpOrbs)
+				xp.setPosition(players.get(0).posX, players.get(0).posY, players.get(0).posZ);
 			players.remove(0);
 			aabb.remove(0);
 			delays.remove(0);
 		}
 	}
-	
+
 	/** Detect when mob killed and give drops to player.*/
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(LivingDropsEvent event)
@@ -54,7 +57,7 @@ public class DelayedPickupEvent
 		if (!event.getEntity().worldObj.isRemote && event.getSource().getEntity() instanceof EntityPlayer)
 			DelayedPickupEvent.setDelayedPickup((EntityPlayer) event.getSource().getEntity(), event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ);
 	}
-	
+
 	/** Detect when player clicks jukebox and gives record to player.*/
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(RightClickBlock event)
@@ -62,7 +65,7 @@ public class DelayedPickupEvent
 		if (!event.getEntityPlayer().worldObj.isRemote)
 			DelayedPickupEvent.setDelayedPickup(event.getEntityPlayer(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ());
 	}
-	
+
 	/** Detect when mob sheared.*/
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(EntityInteractSpecific event)
@@ -78,7 +81,7 @@ public class DelayedPickupEvent
 		if (!event.getWorld().isRemote)
 			DelayedPickupEvent.setDelayedPickup(event.getPlayer(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ());
 	}
-	
+
 	/** Detect when minecart container/item frame/painting/armor stand/boat destroyed and give contents to player.*/
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(AttackEntityEvent event)
@@ -86,7 +89,7 @@ public class DelayedPickupEvent
 		if (!event.getEntityPlayer().worldObj.isRemote)
 			DelayedPickupEvent.setDelayedPickup(event.getEntityPlayer(), event.getTarget().posX, event.getTarget().posY, event.getTarget().posZ);
 	}
-	
+
 	/** Detect when experience is dropped and give to player.*/
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(LivingExperienceDropEvent event)

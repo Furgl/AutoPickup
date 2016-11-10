@@ -3,9 +3,10 @@ package furgl.autoPickup;
 import furgl.autoPickup.event.DelayedPickupEvent;
 import furgl.autoPickup.event.EntityItemPickupEvents;
 import furgl.autoPickup.event.ItemTossEvents;
-import furgl.autoPickup.event.PlaySoundAtEntityEvents;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -22,7 +23,7 @@ public class AutoPickup
 {
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "2.2";
+	public static final String VERSION = "2.3";
 	
 	public static SimpleNetworkWrapper network;
 	@SidedProxy(clientSide = "furgl.autoPickup.ClientProxy", serverSide = "furgl.autoPickup.CommonProxy")
@@ -52,7 +53,6 @@ public class AutoPickup
 	public void registerEventListeners() 
 	{
 		MinecraftForge.EVENT_BUS.register(new DelayedPickupEvent());
-		MinecraftForge.EVENT_BUS.register(new PlaySoundAtEntityEvents());
 		MinecraftForge.EVENT_BUS.register(new EntityItemPickupEvents());
 		MinecraftForge.EVENT_BUS.register(new ItemTossEvents());
 		MinecraftForge.EVENT_BUS.register(new IgnoreKey());
@@ -67,8 +67,10 @@ public class AutoPickup
 		if (itemStack != null && (!Config.blacklistNames.contains(itemStack.getItem().getItemStackDisplayName(itemStack).replace(" ", "_")) || IgnoreKey.isPressed))
 		{
 			boolean value = player.inventory.addItemStackToInventory(itemStack);
-			if (value)
+			if (value) {
 				player.inventoryContainer.detectAndSendChanges();
+                player.worldObj.playSound((EntityPlayer)null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.PLAYERS, 0.2F, ((player.getRNG().nextFloat() - player.getRNG().nextFloat()) * 0.7F + 1.0F) * 2.0F);
+			}
 			return value;
 		}
 		else
