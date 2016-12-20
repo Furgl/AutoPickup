@@ -63,7 +63,7 @@ public class CommandBlacklist extends CommandBase
 		items.add(Item.getItemFromBlock(Blocks.NETHER_BRICK_STAIRS).getItemStackDisplayName(new ItemStack(Blocks.NETHER_BRICK_STAIRS)).replace(" ", "_"));
 		items.add(Item.getItemFromBlock(Blocks.NETHERRACK).getItemStackDisplayName(new ItemStack(Blocks.NETHERRACK)).replace(" ", "_"));
 		items.add(Item.getItemFromBlock(Blocks.SANDSTONE).getItemStackDisplayName(new ItemStack(Blocks.SANDSTONE)).replace(" ", "_"));
-		items.add(Item.getItemFromBlock(Blocks.field_189877_df).getItemStackDisplayName(new ItemStack(Blocks.field_189877_df)).replace(" ", "_")); //magma block
+		items.add(Item.getItemFromBlock(Blocks.MAGMA).getItemStackDisplayName(new ItemStack(Blocks.MAGMA)).replace(" ", "_"));
 		presetItems.add(items);
 		presets.add("Monster_Drops");
 		items = new ArrayList<String>();
