@@ -1,11 +1,11 @@
 {
-  "homepage": "http://minecraft.curseforge.com/projects/auto-pickup",
-  "1.11": {
-    "2.3": "See https://minecraft.curseforge.com/projects/auto-pickup/files", 
-    "2.4": "See https://minecraft.curseforge.com/projects/auto-pickup/files", 
-  },
-  "promos": {
-    "1.11-latest": "2.4",
-    "1.11-recommended": "2.4",
-  }
+	"homepage": "http://minecraft.curseforge.com/projects/auto-pickup",
+	"1.11": {
+		"2.3": "See https://minecraft.curseforge.com/projects/auto-pickup/files",
+		"2.4": "See https://minecraft.curseforge.com/projects/auto-pickup/files"
+	},
+	"promos": {
+		"1.11-latest": "2.4",
+		"1.11-recommended": "2.4"
+	}
 }
