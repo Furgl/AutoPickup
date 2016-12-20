@@ -18,6 +18,7 @@ build
 .gradle
 
 # other
+update.json
 eclipse
 run
 saves/
