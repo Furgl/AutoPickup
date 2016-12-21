@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = AutoPickup.MODID, name = AutoPickup.MODNAME, version = AutoPickup.VERSION, updateJSON = "https://raw.githubusercontent.com/Furgl/AutoPickup/1.11/update.json")
-public class AutoPickup
+public class AutoPickup 
 {
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
