@@ -23,10 +23,10 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = AutoPickup.MODID, name = AutoPickup.MODNAME, version = AutoPickup.VERSION, updateJSON = "https://raw.githubusercontent.com/Furgl/AutoPickup/1.10.2/update.json", acceptableRemoteVersions="*")
-public class AutoPickup {  
+public class AutoPickup { 
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "2.4"; 
+	public static final String VERSION = "2.4";
 	
 	public static SimpleNetworkWrapper network;
 	@SidedProxy(clientSide = "furgl.autoPickup.client.ClientProxy", serverSide = "furgl.autoPickup.common.CommonProxy")
