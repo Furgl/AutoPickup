@@ -1,4 +1,4 @@
-package furgl.autoPickup;
+package furgl.autoPickup.common.command;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import furgl.autoPickup.common.config.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStone.EnumType;
 import net.minecraft.block.material.Material;

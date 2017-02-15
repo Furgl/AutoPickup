@@ -1,9 +1,9 @@
-package furgl.autoPickup.event;
+package furgl.autoPickup.common.event;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import furgl.autoPickup.AutoPickup;
+import furgl.autoPickup.common.AutoPickup;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;

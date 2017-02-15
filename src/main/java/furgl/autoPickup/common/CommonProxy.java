@@ -1,4 +1,4 @@
-package furgl.autoPickup;
+package furgl.autoPickup.common;
 
 public class CommonProxy 
 {
