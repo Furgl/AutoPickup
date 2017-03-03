@@ -26,7 +26,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class AutoPickup { 
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "2.4";
+	public static final String VERSION = "2.4.2";
 	
 	public static SimpleNetworkWrapper network;
 	@SidedProxy(clientSide = "furgl.autoPickup.client.ClientProxy", serverSide = "furgl.autoPickup.common.CommonProxy")

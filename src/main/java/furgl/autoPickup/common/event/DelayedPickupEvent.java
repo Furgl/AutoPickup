@@ -8,6 +8,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -28,9 +29,11 @@ public class DelayedPickupEvent
 
 	public static void setDelayedPickup(EntityPlayer player, double x, double y, double z)
 	{
-		delays.add(DELAY);
-		players.add(player);
-		aabb.add(new AxisAlignedBB(x-PICKUP_RADIUS, y-PICKUP_RADIUS, z-PICKUP_RADIUS, x+PICKUP_RADIUS, y+PICKUP_RADIUS, z+PICKUP_RADIUS));
+		if (!(player instanceof FakePlayer)) {
+			delays.add(DELAY);
+			players.add(player);
+			aabb.add(new AxisAlignedBB(x-PICKUP_RADIUS, y-PICKUP_RADIUS, z-PICKUP_RADIUS, x+PICKUP_RADIUS, y+PICKUP_RADIUS, z+PICKUP_RADIUS));
+		}
 	}
 
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
