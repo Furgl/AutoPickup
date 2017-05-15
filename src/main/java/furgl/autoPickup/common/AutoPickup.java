@@ -7,11 +7,13 @@ import furgl.autoPickup.common.event.DelayedPickupEvent;
 import furgl.autoPickup.common.event.EntityItemPickupEvents;
 import furgl.autoPickup.common.event.ItemTossEvents;
 import furgl.autoPickup.common.packet.PacketIgnoreKey;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -26,13 +28,13 @@ import net.minecraftforge.fml.relauncher.Side;
 public class AutoPickup { 
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "2.4.2";
-	
+	public static final String VERSION = "2.4.3";
+
 	public static SimpleNetworkWrapper network;
 	@SidedProxy(clientSide = "furgl.autoPickup.client.ClientProxy", serverSide = "furgl.autoPickup.common.CommonProxy")
 	public static CommonProxy proxy;	
 	public static IgnoreKey key = new IgnoreKey();
-	
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("autoPickupChannel");
@@ -58,16 +60,21 @@ public class AutoPickup {
 		MinecraftForge.EVENT_BUS.register(new DelayedPickupEvent());
 	}
 
-	public static boolean addItem(EntityPlayer player, ItemStack itemStack, boolean giveIfCreative)	{
+	public static boolean addItem(EntityPlayer player, ItemStack stack, boolean giveIfCreative)	{
 		if (!giveIfCreative && player.capabilities.isCreativeMode)
 			return true;
 		Config.syncFromConfig(player.getName());
-		if (itemStack != null && (!Config.blacklistNames.contains(itemStack.getItem().getItemStackDisplayName(itemStack).replace(" ", "_")) || key.isKeyDown(player)))
+		if (stack != null && (!Config.blacklistNames.contains(stack.getItem().getItemStackDisplayName(stack).replace(" ", "_")) || key.isKeyDown(player)))
 		{
-			boolean value = player.inventory.addItemStackToInventory(itemStack);
+			// post fake pickup event for Brad's Backpacks compatibility
+			EntityItem fakeItem = new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, stack);
+			fakeItem.getEntityData().setBoolean("Fake Item", true);
+			ForgeEventFactory.onItemPickup(fakeItem, player, stack);
+
+			boolean value = player.inventory.addItemStackToInventory(stack);
 			if (value) {
 				player.inventoryContainer.detectAndSendChanges();
-                player.worldObj.playSound((EntityPlayer)null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.PLAYERS, 0.2F, ((player.getRNG().nextFloat() - player.getRNG().nextFloat()) * 0.7F + 1.0F) * 2.0F);
+				player.worldObj.playSound((EntityPlayer)null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.PLAYERS, 0.2F, ((player.getRNG().nextFloat() - player.getRNG().nextFloat()) * 0.7F + 1.0F) * 2.0F);
 			}
 			return value;
 		}
