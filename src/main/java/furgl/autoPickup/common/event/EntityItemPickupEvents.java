@@ -12,7 +12,7 @@ public class EntityItemPickupEvents {
 		if (!event.getItem().getEntityData().getBoolean("Fake Item")) {
 			Config.syncFromConfig(event.getEntityPlayer().getName());
 			if (!AutoPickup.key.isKeyDown(event.getEntityPlayer()) && 
-					Config.blacklistNames.contains(event.getItem().getEntityItem().getItem().getItemStackDisplayName(event.getItem().getEntityItem()).replace(" ", "_"))) {
+					Config.blacklistNames.contains(event.getItem().getItem().getItem().getItemStackDisplayName(event.getItem().getItem()).replace(" ", "_"))) {
 				event.getItem().setDefaultPickupDelay();
 				event.setCanceled(true);		
 			}

@@ -38,7 +38,7 @@ public class PacketIgnoreKey implements IMessage {
 	public static class Handler implements IMessageHandler<PacketIgnoreKey, IMessage> {
 		@Override
 		public IMessage onMessage(final PacketIgnoreKey packet, final MessageContext ctx) {
-			IThreadListener mainThread = (WorldServer) ctx.getServerHandler().playerEntity.world;
+			IThreadListener mainThread = (WorldServer) ctx.getServerHandler().player.world;
 			mainThread.addScheduledTask(new Runnable() 
 			{
 				@Override

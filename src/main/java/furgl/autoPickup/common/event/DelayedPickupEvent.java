@@ -43,7 +43,7 @@ public class DelayedPickupEvent
 		{
 			List<EntityItem> items = event.world.getEntitiesWithinAABB(EntityItem.class, aabb.get(0));
 			for (EntityItem item : items)
-				AutoPickup.addItem(players.get(0), item.getEntityItem(), true);
+				AutoPickup.addItem(players.get(0), item.getItem(), true);
 			List<EntityXPOrb> xpOrbs = event.world.getEntitiesWithinAABB(EntityXPOrb.class, aabb.get(0));
 			for (EntityXPOrb xp : xpOrbs)
 				xp.setPosition(players.get(0).posX, players.get(0).posY, players.get(0).posZ);
@@ -57,8 +57,8 @@ public class DelayedPickupEvent
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(LivingDropsEvent event)
 	{
-		if (!event.getEntity().world.isRemote && event.getSource().getEntity() instanceof EntityPlayer)
-			DelayedPickupEvent.setDelayedPickup((EntityPlayer) event.getSource().getEntity(), event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ);
+		if (!event.getEntity().world.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer)
+			DelayedPickupEvent.setDelayedPickup((EntityPlayer) event.getSource().getTrueSource(), event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ);
 	}
 
 	/** Detect when player clicks jukebox and gives record to player.*/

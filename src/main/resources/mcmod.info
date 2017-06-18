@@ -4,7 +4,7 @@
   "name": "AutoPickup",
   "description": "Allows items to be picked up automatically or blacklisted and never picked up.",
   "version": "2.4.3",
-  "mcversion": "1.11.2",
+  "mcversion": "1.12",
   "url": "https://minecraft.curseforge.com/projects/auto-pickup",
   "updateUrl": "",
   "authorList": ["Furgl"],

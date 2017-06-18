@@ -21,7 +21,7 @@ public class ItemTossEvents
 	public void onEvent(ItemTossEvent event) {
 		if (Config.autoAdd && !event.getPlayer().world.isRemote) {
 			Config.syncFromConfig(event.getPlayer().getName());
-			ItemStack stack = event.getEntityItem().getEntityItem();
+			ItemStack stack = event.getEntityItem().getItem();
 			String name = stack.getItem().getItemStackDisplayName(stack).replace(" ", "_");
 			if (!Config.blacklistNames.contains(name)) {
 				Config.blacklistNames.add(name);
