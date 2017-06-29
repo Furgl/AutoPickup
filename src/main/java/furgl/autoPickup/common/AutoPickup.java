@@ -28,7 +28,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class AutoPickup { 
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "2.4.3";
+	public static final String VERSION = "2.4.4";
 	
 	public static SimpleNetworkWrapper network;
 	@SidedProxy(clientSide = "furgl.autoPickup.client.ClientProxy", serverSide = "furgl.autoPickup.common.CommonProxy")
@@ -69,7 +69,7 @@ public class AutoPickup {
 			// post fake pickup event for Brad's Backpacks compatibility
 			EntityItem fakeItem = new EntityItem(player.world, player.posX, player.posY, player.posZ, stack);
 			fakeItem.getEntityData().setBoolean("Fake Item", true);
-			ForgeEventFactory.onItemPickup(fakeItem, player, stack);
+			ForgeEventFactory.onItemPickup(fakeItem, player);
 			
 			boolean value = player.inventory.addItemStackToInventory(stack);
 			if (value) {
