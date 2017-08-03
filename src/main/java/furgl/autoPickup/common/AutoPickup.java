@@ -1,12 +1,12 @@
 package furgl.autoPickup.common;
 
-import furgl.autoPickup.client.key.IgnoreKey;
+import furgl.autoPickup.client.key.Keys;
 import furgl.autoPickup.common.command.CommandBlacklist;
 import furgl.autoPickup.common.config.Config;
 import furgl.autoPickup.common.event.DelayedPickupEvent;
 import furgl.autoPickup.common.event.EntityItemPickupEvents;
 import furgl.autoPickup.common.event.ItemTossEvents;
-import furgl.autoPickup.common.packet.PacketIgnoreKey;
+import furgl.autoPickup.common.packet.PacketSyncKeys;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -28,17 +28,17 @@ import net.minecraftforge.fml.relauncher.Side;
 public class AutoPickup { 
 	public static final String MODID = "autopickup";
 	public static final String MODNAME = "AutoPickup";
-	public static final String VERSION = "2.4.4";
+	public static final String VERSION = "2.5";
 	
 	public static SimpleNetworkWrapper network;
 	@SidedProxy(clientSide = "furgl.autoPickup.client.ClientProxy", serverSide = "furgl.autoPickup.common.CommonProxy")
 	public static CommonProxy proxy;	
-	public static IgnoreKey key = new IgnoreKey();
+	public static Keys keys = new Keys();
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("autoPickupChannel");
-		network.registerMessage(PacketIgnoreKey.Handler.class, PacketIgnoreKey.class, 1, Side.SERVER);
+		network.registerMessage(PacketSyncKeys.Handler.class, PacketSyncKeys.class, 1, Side.SERVER);
 		Config.init(event.getSuggestedConfigurationFile());
 	}
 
@@ -64,7 +64,7 @@ public class AutoPickup {
 		if (!giveIfCreative && player.capabilities.isCreativeMode)
 			return true;
 		Config.syncFromConfig(player.getName());
-		if (stack != null && (!Config.blacklistNames.contains(stack.getItem().getItemStackDisplayName(stack).replace(" ", "_")) || key.isKeyDown(player)))
+		if (stack != null && (!Config.blacklistNames.contains(stack.getItem().getItemStackDisplayName(stack).replace(" ", "_")) || keys.ignore(player)))
 		{
 			// post fake pickup event for Brad's Backpacks compatibility
 			EntityItem fakeItem = new EntityItem(player.world, player.posX, player.posY, player.posZ, stack);
