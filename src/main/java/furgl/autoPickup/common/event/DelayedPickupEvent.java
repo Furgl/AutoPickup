@@ -15,7 +15,6 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.EntityInteractSpecific;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
@@ -29,14 +28,14 @@ public class DelayedPickupEvent
 
 	public static void setDelayedPickup(EntityPlayer player, double x, double y, double z)
 	{
-		if (!(player instanceof FakePlayer)) {
+		if (!(player instanceof FakePlayer) && !AutoPickup.keys.disable(player)) {
 			delays.add(DELAY);
 			players.add(player);
 			aabb.add(new AxisAlignedBB(x-PICKUP_RADIUS, y-PICKUP_RADIUS, z-PICKUP_RADIUS, x+PICKUP_RADIUS, y+PICKUP_RADIUS, z+PICKUP_RADIUS));
 		}
 	}
 
-	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	@SubscribeEvent
 	public void onEvent(TickEvent.WorldTickEvent event)
 	{
 		if (players.size() > 0 && event.world == players.get(0).worldObj && delays.set(0, delays.get(0)-1) == 1)
@@ -54,7 +53,7 @@ public class DelayedPickupEvent
 	}
 
 	/** Detect when mob killed and give drops to player.*/
-	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	@SubscribeEvent
 	public void onEvent(LivingDropsEvent event)
 	{
 		if (!event.getEntity().worldObj.isRemote && event.getSource().getEntity() instanceof EntityPlayer)
@@ -62,7 +61,7 @@ public class DelayedPickupEvent
 	}
 
 	/** Detect when player clicks jukebox and gives record to player.*/
-	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	@SubscribeEvent
 	public void onEvent(RightClickBlock event)
 	{
 		if (!event.getEntityPlayer().worldObj.isRemote)
@@ -70,7 +69,7 @@ public class DelayedPickupEvent
 	}
 
 	/** Detect when mob sheared.*/
-	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	@SubscribeEvent
 	public void onEvent(EntityInteractSpecific event)
 	{
 		if (!event.getEntityPlayer().worldObj.isRemote)
@@ -78,7 +77,7 @@ public class DelayedPickupEvent
 	}
 
 	/** Detect when blocks are broken and give drops to player.*/
-	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	@SubscribeEvent
 	public void onEvent(BlockEvent.BreakEvent event)
 	{
 		if (!event.getWorld().isRemote)
@@ -86,7 +85,7 @@ public class DelayedPickupEvent
 	}
 
 	/** Detect when minecart container/item frame/painting/armor stand/boat destroyed and give contents to player.*/
-	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	@SubscribeEvent
 	public void onEvent(AttackEntityEvent event)
 	{
 		if (!event.getEntityPlayer().worldObj.isRemote)
@@ -94,7 +93,7 @@ public class DelayedPickupEvent
 	}
 
 	/** Detect when experience is dropped and give to player.*/
-	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	@SubscribeEvent
 	public void onEvent(LivingExperienceDropEvent event)
 	{
 		if (!event.getEntity().worldObj.isRemote && event.getAttackingPlayer() != null)
